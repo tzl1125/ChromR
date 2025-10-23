@@ -1,0 +1,1013 @@
+app:
+  description: 能够分析实验数据，使用逐步回归建模。可以传入文件计算设计空间。可以进行关联规则挖掘。可以使用进化算法进行多目标优化
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: ChromR-Agent D
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.54@a719a5a226596151af6ff33fa710a74476faa6e1afde9e4a201ff8a7803857ff
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1752050034968-source-1752052345870-target
+      selected: false
+      source: '1752050034968'
+      sourceHandle: source
+      target: '1752052345870'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1752065485113-source-1752065530501-target
+      selected: false
+      source: '1752065485113'
+      sourceHandle: source
+      target: '1752065530501'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1752065530501-true-1752050034968-target
+      selected: false
+      source: '1752065530501'
+      sourceHandle: 'true'
+      target: '1752050034968'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1751875216914-source-1752111647359-target
+      selected: false
+      source: '1751875216914'
+      sourceHandle: source
+      target: '1752111647359'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1752111647359-68ba831b-2f3a-4557-a0c2-49c1b2ae81ad-1751892007118-target
+      selected: false
+      source: '1752111647359'
+      sourceHandle: 68ba831b-2f3a-4557-a0c2-49c1b2ae81ad
+      target: '1751892007118'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1752111647359-0f9843ae-93f1-4291-af25-7967ff50d5e8-1752065485113-target
+      selected: false
+      source: '1752111647359'
+      sourceHandle: 0f9843ae-93f1-4291-af25-7967ff50d5e8
+      target: '1752065485113'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1752111647359-false-1752116108839-target
+      selected: false
+      source: '1752111647359'
+      sourceHandle: 'false'
+      target: '1752116108839'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1752111647359-true-1751891855571-target
+      selected: false
+      source: '1752111647359'
+      sourceHandle: 'true'
+      target: '1751891855571'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1752111647359-5a95bb08-07e5-4686-b98a-ab1afd1f47f1-1751876027503-target
+      selected: false
+      source: '1752111647359'
+      sourceHandle: 5a95bb08-07e5-4686-b98a-ab1afd1f47f1
+      target: '1751876027503'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1751891855571-source-1752225653044-target
+      selected: false
+      source: '1751891855571'
+      sourceHandle: source
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1751892007118-source-1752225653044-target
+      selected: false
+      source: '1751892007118'
+      sourceHandle: source
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1751876027503-source-1752225653044-target
+      selected: false
+      source: '1751876027503'
+      sourceHandle: source
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1752052345870-source-1752225653044-target
+      selected: false
+      source: '1752052345870'
+      sourceHandle: source
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1752065530501-false-1752225653044-target
+      selected: false
+      source: '1752065530501'
+      sourceHandle: 'false'
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1752116108839-source-1752225653044-target
+      selected: false
+      source: '1752116108839'
+      sourceHandle: source
+      target: '1752225653044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: end
+      id: 1752225653044-source-1752225733471-target
+      selected: false
+      source: '1752225653044'
+      sourceHandle: source
+      target: '1752225733471'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 逐步回归p值
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: p_value
+        - label: 关联规则挖掘最小支持度
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: min_support
+        - label: 关联规则挖掘最小置信度
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: min_conf
+        - label: 蒙特卡洛模拟次数
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: mt
+        - label: 可接受的风险
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: r
+        - label: 设计空间类型
+          max_length: 48
+          options:
+          - includeN
+          - withM
+          - withoutM
+          - ''
+          required: false
+          type: text-input
+          variable: ds_type
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 待分析的数据
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: datas
+        - label: 选择功能
+          max_length: 48
+          options:
+          - 逐步回归
+          - 关联规则挖掘
+          - 设计空间计算
+          - 多目标优化
+          - 其他
+          required: true
+          type: select
+          variable: func
+        - label: 用户需求描述
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+        - label: 服务器ip
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: server_ip
+        - label: 无概率设计空间
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: no_risk
+      height: 350
+      id: '1751875216914'
+      position:
+        x: 28.851301645002962
+        y: 348.5
+      positionAbsolute:
+        x: 28.851301645002962
+        y: 348.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def get_path(filesize):\n    import os\n    # 存储符合条件的文件列表\n    matched_files\
+          \ = []\n    # 检查 upload_files 文件夹\n    upload_dir = '/upload_files'\n\n\
+          \    # 确保文件夹存在\n    if not os.path.exists(upload_dir):\n        return {\"\
+          file_path\": \"None\"}\n\n    # 递归遍历文件夹中的所有文件\n    for root, dirs, files\
+          \ in os.walk(upload_dir):\n        for filename in files:  # 只处理文件，忽略文件夹\n\
+          \            file_path = os.path.join(root, filename)\n\n            # 获取文件状态信息\n\
+          \            file_stat = os.stat(file_path)\n\n            # 获取文件修改时间\n\
+          \            file_mtime = file_stat.st_mtime\n\n            # 检查文件大小和修改时间是否符合条件\n\
+          \            if file_stat.st_size == filesize:\n                matched_files.append((file_path,\
+          \ file_mtime))\n\n    if matched_files:\n        # 按修改时间排序，取最新的文件\n    \
+          \    newest_file = max(matched_files, key=lambda x: x[1])\n        return\
+          \ str(newest_file[0])\n    else:\n        return \"None\"\n        \ndef\
+          \ main(datas, p_value, server_ip):\n    import requests\n\n    pc_size =\
+          \ 0\n    er_size = 0\n    mc_size = 0\n    pc_file_name = ''\n    er_file_name\
+          \ = ''\n    mc_file_name = ''\n    file_names = ['expresults.xlsx', 'parametercondition.xlsx','materialcondition.xlsx']\n\
+          \    for f in datas:\n        if f['filename'].lower() == 'expresults.xlsx':\n\
+          \            er_size = f['size']\n            er_file_name = f['filename']\n\
+          \            file_names.remove('expresults.xlsx')\n        if f['filename'].lower()\
+          \ == 'parametercondition.xlsx':\n            pc_size = f['size']\n     \
+          \       pc_file_name = f['filename']\n            file_names.remove('parametercondition.xlsx')\n\
+          \        if f['filename'].lower() == 'materialcondition.xlsx':\n       \
+          \     mc_size = f['size']\n            mc_file_name = f['filename']\n  \
+          \          file_names.remove('materialcondition.xlsx')\n\n    if not (pc_size\
+          \ and er_size):\n        error = '、'.join(file_names)\n        return {\"\
+          result\": f'文件名称不对或缺少，请上传{error}'}\n\n    pc_file_path = get_path(pc_size)\n\
+          \    er_file_path = get_path(er_size)\n    mc_file_path = get_path(mc_size)\
+          \ if mc_size else None\n\n    api_url = f\"http://{server_ip}:8000/stepwise-regress/\"\
+          \n    # 准备文件数据\n    files = {\n        'pc': (pc_file_name, open(pc_file_path,\
+          \ 'rb')),\n        'er': (er_file_name, open(er_file_path, 'rb'))\n    }\n\
+          \n    # 如果有物料属性文件，添加到上传文件中\n    if mc_size and mc_file_path:\n        files['material']\
+          \ = (mc_file_name, open(mc_file_path, 'rb'))\n\n    data = {\n        'p':\
+          \ p_value\n    }\n\n    response = requests.post(\n        api_url,\n  \
+          \      files=files,\n        data=data\n    )\n\n    if response.status_code\
+          \ == 200:\n        response_data = response.json()\n        return {\n \
+          \           \"result\": response_data.get(\"result\", \"\")\n        }\n\
+          \    else:\n        return {\n            \"result\": f'error: 请求失败，状态码:\
+          \ {response.status_code}\\ndetail:{response.text}'\n        }"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 逐步回归建模传入的数据有问题
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 逐步回归建模
+        type: code
+        variables:
+        - value_selector:
+          - '1751875216914'
+          - p_value
+          variable: p_value
+        - value_selector:
+          - '1751875216914'
+          - server_ip
+          variable: server_ip
+        - value_selector:
+          - '1751875216914'
+          - datas
+          value_type: array[file]
+          variable: datas
+      height: 90
+      id: '1751891855571'
+      position:
+        x: 636
+        y: 334.8554458584045
+      positionAbsolute:
+        x: 636
+        y: 334.8554458584045
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def get_path(filesize):\n    import os\n    # 存储符合条件的文件列表\n    matched_files\
+          \ = []\n    # 检查 upload_files 文件夹\n    upload_dir = '/upload_files'\n\n\
+          \    # 确保文件夹存在\n    if not os.path.exists(upload_dir):\n        return {\"\
+          file_path\": \"None\"}\n\n    # 递归遍历文件夹中的所有文件\n    for root, dirs, files\
+          \ in os.walk(upload_dir):\n        for filename in files:  # 只处理文件，忽略文件夹\n\
+          \            file_path = os.path.join(root, filename)\n\n            # 获取文件状态信息\n\
+          \            file_stat = os.stat(file_path)\n\n            # 获取文件修改时间\n\
+          \            file_mtime = file_stat.st_mtime\n\n            # 检查文件大小和修改时间是否符合条件\n\
+          \            if file_stat.st_size == filesize:\n                matched_files.append((file_path,\
+          \ file_mtime))\n\n    if matched_files:\n        # 按修改时间排序，取最新的文件\n    \
+          \    newest_file = max(matched_files, key=lambda x: x[1])\n        return\
+          \ str(newest_file[0])\n    else:\n        return \"None\"\n\ndef main(datas,\
+          \ mt, p, r, server_ip, ds_type, no_risk):\n    pc_size = 0\n    er_size\
+          \ = 0\n    yl_size = 0\n    xl_size = 0\n    mc_size = 0\n\n    pc_file_name\
+          \ = ''\n    er_file_name = ''\n    yl_file_name = ''\n    xl_file_name =\
+          \ ''\n    mc_file_name = ''\n\n    # 根据ds_type确定需要的文件列表\n    if ds_type\
+          \ == \"withM\":\n        file_names = ['expresults.xlsx', 'parametercondition.xlsx',\
+          \ \"xlimitssteps.xlsx\", 'ylimits.xlsx',\n                      'materialcondition.xlsx']\n\
+          \    else:\n        file_names = ['expresults.xlsx', 'parametercondition.xlsx',\
+          \ \"xlimitssteps.xlsx\", 'ylimits.xlsx']\n\n    # 提取文件信息并验证\n    for f in\
+          \ datas:\n        lower_name = f['filename'].lower()\n        if lower_name\
+          \ == 'expresults.xlsx':\n            er_size = f['size']\n            er_file_name\
+          \ = f['filename']\n            file_names.remove('expresults.xlsx')\n  \
+          \      elif lower_name == 'parametercondition.xlsx':\n            pc_size\
+          \ = f['size']\n            pc_file_name = f['filename']\n            file_names.remove('parametercondition.xlsx')\n\
+          \        elif lower_name == 'xlimitssteps.xlsx':\n            xl_size =\
+          \ f['size']\n            xl_file_name = f['filename']\n            file_names.remove('xlimitssteps.xlsx')\n\
+          \        elif lower_name == 'ylimits.xlsx':\n            yl_size = f['size']\n\
+          \            yl_file_name = f['filename']\n            file_names.remove('ylimits.xlsx')\n\
+          \        if ds_type == \"withM\" and lower_name == 'materialcondition.xlsx':\n\
+          \            mc_size = f['size']\n            mc_file_name = f['filename']\n\
+          \            file_names.remove('materialcondition.xlsx')\n\n    # 检查是否缺少文件\n\
+          \    if ds_type == \"withM\":\n        all_files = pc_size and er_size and\
+          \ yl_size and xl_size and mc_size\n    else:\n        all_files = pc_size\
+          \ and er_size and yl_size and xl_size\n\n    if not all_files:\n       \
+          \ error = '、'.join(file_names)\n        return {\"result\": f'文件名称不对或缺少，请上传{error}'}\n\
+          \n    # 获取文件路径\n    pc_file = get_path(pc_size)\n    er_file = get_path(er_size)\n\
+          \    yl_file = get_path(yl_size)\n    xl_file = get_path(xl_size)\n\n  \
+          \  import requests\n    # 根据是否为无概率计算构建不同URL\n    if no_risk:\n        url\
+          \ = f\"http://{server_ip}:8000/design-space/noR/{ds_type}\"\n    else:\n\
+          \        url = f\"http://{server_ip}:8000/design-space/{ds_type}\"\n\n \
+          \   # 构建文件上传字典\n    files = {\n        'YLimits': (yl_file_name, open(yl_file,\
+          \ 'rb')),\n        'ParameterCondition': (pc_file_name, open(pc_file, 'rb')),\n\
+          \        'ExpResults': (er_file_name, open(er_file, 'rb')),\n        'XLimitsSteps':\
+          \ (xl_file_name, open(xl_file, 'rb'))\n    }\n\n    # 如果需要物料属性文件则添加\n  \
+          \  if ds_type == \"withM\":\n        mc_file = get_path(mc_size)\n     \
+          \   files['MaterialCondition'] = (mc_file_name, open(mc_file, 'rb'))\n\n\
+          \    # 根据是否为无概率计算构建不同参数\n    if no_risk:\n        payload = {'p': p}\n \
+          \   else:\n        payload = {\n            'mt': mt,\n            'r':\
+          \ r,\n            'p': p,\n        }\n\n    # 发送请求\n    response = requests.post(url,\
+          \ data=payload, files=files)\n\n    # 处理响应\n    if response.status_code\
+          \ == 200:\n        return {\"result\": response.json().get('result')}\n\
+          \    else:\n        return {\n            \"result\": f'error: 请求失败，状态码:\
+          \ {response.status_code}\\ndetail:{response.text}'\n        }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 设计空间计算传入数据异常
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 设计空间计算
+        type: code
+        variables:
+        - value_selector:
+          - '1751875216914'
+          - mt
+          variable: mt
+        - value_selector:
+          - '1751875216914'
+          - p_value
+          variable: p
+        - value_selector:
+          - '1751875216914'
+          - r
+          variable: r
+        - value_selector:
+          - '1751875216914'
+          - server_ip
+          variable: server_ip
+        - value_selector:
+          - '1751875216914'
+          - ds_type
+          variable: ds_type
+        - value_selector:
+          - '1751875216914'
+          - datas
+          value_type: array[file]
+          variable: datas
+        - value_selector:
+          - '1751875216914'
+          - no_risk
+          value_type: number
+          variable: no_risk
+      height: 90
+      id: '1751876027503'
+      position:
+        x: 644.4967880434862
+        y: 712.5137030456646
+      positionAbsolute:
+        x: 644.4967880434862
+        y: 712.5137030456646
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def get_path(filesize):\n    import os\n    # 存储符合条件的文件列表\n    matched_files\
+          \ = []\n    # 检查 upload_files 文件夹\n    upload_dir = '/upload_files'\n\n\
+          \    # 确保文件夹存在\n    if not os.path.exists(upload_dir):\n        return {\"\
+          file_path\": \"None\"}\n\n    # 递归遍历文件夹中的所有文件\n    for root, dirs, files\
+          \ in os.walk(upload_dir):\n        for filename in files:  # 只处理文件，忽略文件夹\n\
+          \            file_path = os.path.join(root, filename)\n\n            # 获取文件状态信息\n\
+          \            file_stat = os.stat(file_path)\n\n            # 获取文件修改时间\n\
+          \            file_mtime = file_stat.st_mtime\n\n            # 检查文件大小和修改时间是否符合条件\n\
+          \            if file_stat.st_size == filesize:\n                matched_files.append((file_path,\
+          \ file_mtime))\n\n    if matched_files:\n        # 按修改时间排序，取最新的文件\n    \
+          \    newest_file = max(matched_files, key=lambda x: x[1])\n        return\
+          \ str(newest_file[0])\n    else:\n        return \"None\"\n        \ndef\
+          \ main(datas, min_support: int, min_conf: float, server_ip: str) -> dict:\n\
+          \    import requests\n    url = f\"http://{server_ip}:8000/fp-growth\"\n\
+          \    if len(datas) == 0:\n        return {\"result\": \"没有上传数据文件\"}\n  \
+          \  data_size = datas[0]['size']\n    data_name = datas[0]['filename']\n\
+          \    dataset = get_path(data_size)\n    files = {'data_file': (data_name,\
+          \ open(dataset, 'rb'))}\n\n    payload = {\n        'min_support': min_support,\n\
+          \        'min_conf': min_conf\n    }\n    response = requests.post(url,\
+          \ data=payload, files=files)\n\n    if response.status_code == 200:\n  \
+          \      return {\"result\": f\"分析文件：{data_name}\\n响应结果：{response.json().get('result')}\"\
+          }\n    else:\n        return {\n            \"result\": f'error: 请求失败，状态码:\
+          \ {response.status_code}\\ndetail:{response.text}'\n        }"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 关联规则挖掘传入的数据有问题
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 关联规则挖掘
+        type: code
+        variables:
+        - value_selector:
+          - '1751875216914'
+          - server_ip
+          variable: server_ip
+        - value_selector:
+          - '1751875216914'
+          - min_support
+          variable: min_support
+        - value_selector:
+          - '1751875216914'
+          - min_conf
+          variable: min_conf
+        - value_selector:
+          - '1751875216914'
+          - datas
+          value_type: array[file]
+          variable: datas
+      height: 90
+      id: '1751892007118'
+      position:
+        x: 644.4967880434862
+        y: 517.5714285714286
+      positionAbsolute:
+        x: 644.4967880434862
+        y: 517.5714285714286
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-max-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 64d932b8-7efc-4277-8fa9-b3380cb8b560
+          role: system
+          text: "你的任务是基于用户的多目标优化任务描述，提取参数并生成json请求体。以下是一个示例，请参考以下python字典示例生成基于用户描述且满足后端要求的json请求体：\n\
+            '''​\n{\n        \"variables\": {\n            \"x\": {\"lower\": 0, \"\
+            upper\": 5},\n            \"y\": {\"lower\": 0, \"upper\": 5}\n      \
+            \  },\n        \"objective_functions\": {\n            \"objective1\"\
+            : textwrap.dedent(inspect.getsource(函数体)),\n            \"objective2\"\
+            : textwrap.dedent(inspect.getsource(函数体)),\n            \"constraint\"\
+            : textwrap.dedent(inspect.getsource(函数体))\n        },\n        \"objective_ranges\"\
+            : {\n            \"objective1\": {\"min_value\": None, \"max_value\":\
+            \ None, \"direction\": \"min\"},\n            \"objective2\": {\"min_value\"\
+            : None, \"max_value\": None, \"direction\": \"max\"},\n            \"\
+            constraint\": {\"min_value\": 5, \"max_value\": None, \"direction\": None}\
+            \  # 纯约束条件\n        },\n        \"algorithm\": \"nsga3\",\n        \"\
+            population_size\": 100,\n        \"generations\": 100\n}\n'''\n\n#生成json请求体要点：\n\
+            1. variables字段里的变量名称一定要与objective_functions传入参数的名称完全一致\n2. objective_functions字段的函数名称和目标值名称一定要与objective_ranges字段的目标值范围名称完全一致\n\
+            3. objective_functions字段的函数字符串一定要与textwrap.dedent(inspect.getsource(objective1))代码生成形式一致\n\
+            4. algorithm字段不是必填，后端默认“nsga2”，且只可选“nsga2”和“nsga3”。若用户未指定则根据用户优化目标数量选择。“nsga2”适合2-3\
+            \ 个目标，“nsga3”适合4 个及以上目标。\n5. generations若用户未指定则默认100。若用户未指定population_size则默认100。\n\
+            6. 注意json请求体空值是null而不是None\n7. 每个objective_functions传入参数都要包含所有variables字段里的变量，即使有些参数并没有使用到\n\
+            \n\n只返回生成的json请求体，不使用代码块包裹！不要返回用户描述中没有提到的内容"
+        - id: 8bf2aa5e-4a5f-425f-ad72-0a4b021a50ae
+          role: user
+          text: '用户描述如下：
+
+            {{#1751875216914.query#}}'
+        selected: false
+        title: 多目标优化json生成
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1752050034968'
+      position:
+        x: 916.9937382926614
+        y: 902
+      positionAbsolute:
+        x: 916.9937382926614
+        y: 902
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: tzl
+        desc: ''
+        height: 205
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"font-size:
+          14px;","text":"多目标优化测试提示词：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":"font-size:
+          14px;"},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          12px;","text":"目标1计算公式","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"(x
+          - 3) ** 2 + (y - 2) ** 2","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          12px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"目标2计算公式-(x
+          - 1) ** 2 - (y - 4) ** 2+60","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"变量x和y的范围都是0-5，进行多目标优化，要求x+y大于5，目标1最小，目标2最大","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 347
+      height: 205
+      id: '1752051742845'
+      position:
+        x: 159.5341009290516
+        y: 792.0272026104942
+      positionAbsolute:
+        x: 159.5341009290516
+        y: 792.0272026104942
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 347
+    - data:
+        code: "\ndef main(request_data: str, server_ip: str) -> dict:\n    import\
+          \ json\n    import requests\n    request_data = json.loads(request_data)\n\
+          \    response = requests.post(\n        f\"http://{server_ip}:8000/optimize/\"\
+          ,\n        json=request_data\n    )\n    if response.status_code == 200:\n\
+          \        response_data = response.json()\n        return {\n           \
+          \ \"result\": response_data.get(\"result\", \"\")\n        }\n    else:\n\
+          \        return {\n            \"result\": f\"请求失败，状态码: {response.status_code}\\\
+          n具体信息{response.text}\"\n        }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 多目标优化请求
+        type: code
+        variables:
+        - value_selector:
+          - '1752050034968'
+          - text
+          variable: request_data
+        - value_selector:
+          - '1751875216914'
+          - server_ip
+          variable: server_ip
+      height: 54
+      id: '1752052345870'
+      position:
+        x: 1257.857142857143
+        y: 930.5714285714287
+      positionAbsolute:
+        x: 1257.857142857143
+        y: 930.5714285714287
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-max-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: f605d18e-66eb-4c34-b14f-3dd4ffefa1b5
+          role: system
+          text: '你的任务是根据后端pydantic模型判断用户描述内容是否完整，是否可以从描述中提取所有必填的参数以生成json请求体。缺少后端默认参数不视为不完整。
+
+            若完整则只输出“完整”，不要返回额外的文字
+
+            若不完整，则告诉用户必须给出的信息（必填字段），按以下格式输出：
+
+            ‘’‘
+
+            缺少部分信息，请提供：
+
+            1. 信息1
+
+            2. 信息2
+
+            3. ...
+
+            ’‘’
+
+
+            后端有默认参数的字段包括“algorithm”、“population_size”和“generations”
+
+            必须要提供的有各个自变量的范围、各个目标的计算公式、各个目标的优化方向（最大或者最小）或者约束（指定范围）
+
+
+            注意：优化方向和约束至少要有一个，但不要求都有'
+        - id: a2f1e9ee-9899-4314-8f3d-dc36c074d588
+          role: user
+          text: "用户描述如下：\n{{#1751875216914.query#}}\n\n后端pydantic模型如下：\nclass VariableRange(BaseModel):\n\
+            \    lower: float\n    upper: float\n\n    @field_validator('lower', 'upper')\n\
+            \    def check_bounds(cls, v):\n        if not isinstance(v, (int, float)):\n\
+            \            raise ValueError(\"边界值必须是数字\")\n        return float(v)\n\
+            \n\nclass ObjectiveDirection(str, Enum):\n    MAX = \"max\"\n    MIN =\
+            \ \"min\"\n\n\nclass OptimizationAlgorithm(str, Enum):\n    NSGA2 = \"\
+            nsga2\"\n    NSGA3 = \"nsga3\"\n\n\nclass ObjectiveRange(BaseModel):\n\
+            \    min_value: Optional[float] = None\n    max_value: Optional[float]\
+            \ = None\n    direction: Optional[ObjectiveDirection] = None\n\n    @field_validator('min_value',\
+            \ 'max_value')\n    def check_values(cls, value, field_info):\n      \
+            \  if field_info.field_name == 'min_value':\n            max_value = field_info.data.get('max_value')\n\
+            \            if max_value is not None and value is not None and value\
+            \ > max_value:\n                raise ValueError(\"min_value不能大于max_value\"\
+            )\n        return value\n\n\nclass OptimizationRequest(BaseModel):\n \
+            \   variables: Dict[str, VariableRange]\n    objective_functions: Dict[str,\
+            \ str]\n    objective_ranges: Dict[str, ObjectiveRange]\n    algorithm:\
+            \ OptimizationAlgorithm = OptimizationAlgorithm.NSGA2\n    population_size:\
+            \ int = Field(500, gt=0)\n    generations: int = Field(100, gt=0)\n\n\
+            \    @field_validator('objective_ranges')\n    def check_objective_ranges(cls,\
+            \ value):\n        for name, obj_range in value.items():\n           \
+            \ if obj_range.direction is None and obj_range.min_value is None and obj_range.max_value\
+            \ is None:\n                raise ValueError(f\"目标 {name} 必须指定direction或边界约束\"\
+            )\n        return value\n\n    @field_validator('objective_ranges')\n\
+            \    def check_at_least_one_direction(cls, value):\n        if all(obj_range.direction\
+            \ is None for obj_range in value.values()):\n            raise ValueError(\"\
+            至少需要指定一个目标的方向（max或min）\")\n        return value"
+        selected: false
+        title: 描述完整检查
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1752065485113'
+      position:
+        x: 621.3860517853404
+        y: 902
+      positionAbsolute:
+        x: 621.3860517853404
+        y: 902
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 3d13f52e-c9d7-4c78-a2cc-f94344a15619
+            value: 完整
+            varType: string
+            variable_selector:
+            - '1752065485113'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 判断完整
+        type: if-else
+      height: 126
+      id: '1752065530501'
+      position:
+        x: 924.7142857142856
+        y: 758.2857142857142
+      positionAbsolute:
+        x: 924.7142857142856
+        y: 758.2857142857142
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 0590a706-2ff6-4aac-b4b3-b7044a5e0ba7
+            value: 逐步回归
+            varType: string
+            variable_selector:
+            - '1751875216914'
+            - func
+          id: 'true'
+          logical_operator: or
+        - case_id: 68ba831b-2f3a-4557-a0c2-49c1b2ae81ad
+          conditions:
+          - comparison_operator: contains
+            id: 1627b734-0d3b-4477-b1af-9f7e86face6a
+            value: 关联规则
+            varType: string
+            variable_selector:
+            - '1751875216914'
+            - func
+          id: 68ba831b-2f3a-4557-a0c2-49c1b2ae81ad
+          logical_operator: and
+        - case_id: 5a95bb08-07e5-4686-b98a-ab1afd1f47f1
+          conditions:
+          - comparison_operator: contains
+            id: b74208be-e8e3-4a1c-9134-9ed7ab4f1431
+            value: 设计空间
+            varType: string
+            variable_selector:
+            - '1751875216914'
+            - func
+          id: 5a95bb08-07e5-4686-b98a-ab1afd1f47f1
+          logical_operator: and
+        - case_id: 0f9843ae-93f1-4291-af25-7967ff50d5e8
+          conditions:
+          - comparison_operator: contains
+            id: bf41c1e0-2756-4463-8908-91d474d67024
+            value: 多目标优化
+            varType: string
+            variable_selector:
+            - '1751875216914'
+            - func
+          id: 0f9843ae-93f1-4291-af25-7967ff50d5e8
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 功能判断
+        type: if-else
+      height: 270
+      id: '1752111647359'
+      position:
+        x: 333
+        y: 348.5
+      positionAbsolute:
+        x: 333
+        y: 348.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "当前模块没有以下功能：\r\n{{ arg1 }}"
+        title: 无该功能
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1751875216914'
+          - func
+          variable: arg1
+      height: 54
+      id: '1752116108839'
+      position:
+        x: 636
+        y: 1067
+      positionAbsolute:
+        x: 636
+        y: 1067
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1752052345870'
+          - result
+        - - '1751892007118'
+          - result
+        - - '1751876027503'
+          - result
+        - - '1752116108839'
+          - output
+        - - '1751891855571'
+          - result
+        - - '1752065485113'
+          - text
+      height: 218
+      id: '1752225653044'
+      position:
+        x: 1930.2384463248206
+        y: 921.0145857372185
+      positionAbsolute:
+        x: 1930.2384463248206
+        y: 921.0145857372185
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1752225653044'
+          - output
+          value_type: string
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1752225733471'
+      position:
+        x: 2248.606649301933
+        y: 979.9101153563386
+      positionAbsolute:
+        x: 2248.606649301933
+        y: 979.9101153563386
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -35.70144540693127
+      y: -395.56475432784237
+      zoom: 1.0367394549115287

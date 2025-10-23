@@ -1,0 +1,837 @@
+app:
+  description: 机器人可以根据给定的初始柱层析工艺参数进行实验设计。实验设计算法应该包括主动学习如贝叶斯优化、强化学习，和传统实验设计如DSD、PB等。注：主动学习主要用于参数很多，假设空间很大的场景，以银杏叶提取物为例子时可暂时不考虑。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: ChromR-Agent B
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.54@a719a5a226596151af6ff33fa710a74476faa6e1afde9e4a201ff8a7803857ff
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: if-else
+      id: 1744337758034-source-1744337710452-target
+      selected: false
+      source: '1744337758034'
+      sourceHandle: source
+      target: '1744337710452'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: parameter-extractor
+      id: 1744372089111-source-1744337758034-target
+      selected: false
+      source: '1744372089111'
+      sourceHandle: source
+      target: '1744337758034'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1744278097895-source-1744373398619-target
+      selected: false
+      source: '1744278097895'
+      sourceHandle: source
+      target: '1744373398619'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1744373398619-true-1744376522033-target
+      selected: false
+      source: '1744373398619'
+      sourceHandle: 'true'
+      target: '1744376522033'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1744337710452-true-1744278097895-target
+      selected: false
+      source: '1744337710452'
+      sourceHandle: 'true'
+      target: '1744278097895'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1744337710452-false-17443556537560-target
+      selected: false
+      source: '1744337710452'
+      sourceHandle: 'false'
+      target: '17443556537560'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1744376522033-source-1744364078889-target
+      selected: false
+      source: '1744376522033'
+      sourceHandle: source
+      target: '1744364078889'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1744373398619-false-1744364078889-target
+      selected: false
+      source: '1744373398619'
+      sourceHandle: 'false'
+      target: '1744364078889'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 17443556537560-source-1744364078889-target
+      selected: false
+      source: '17443556537560'
+      sourceHandle: source
+      target: '1744364078889'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: parameter-extractor
+      id: 1744273691090-source-1756553929651-target
+      selected: false
+      source: '1744273691090'
+      sourceHandle: source
+      target: '1756553929651'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: parameter-extractor
+      id: 1756553929651-source-1744372089111-target
+      selected: false
+      source: '1756553929651'
+      sourceHandle: source
+      target: '1744372089111'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1744364078889-source-1756556854361-target
+      selected: false
+      source: '1744364078889'
+      sourceHandle: source
+      target: '1756556854361'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1756556854361-source-1744364099175-target
+      selected: false
+      source: '1756556854361'
+      sourceHandle: source
+      target: '1744364099175'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 实验设计描述
+          max_length: 1024
+          options: []
+          required: true
+          type: paragraph
+          variable: exp_description
+      height: 90
+      id: '1744273691090'
+      position:
+        x: 30
+        y: 276.5
+      positionAbsolute:
+        x: 30
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import definitive_screening_design as dsd\nimport ast\nimport warnings\n\
+          import pandas as pd\n\n# 忽略所有警告\nwarnings.filterwarnings(\"ignore\")\n\n\
+          def main(exp: str, factors: str, extra_para: str) -> dict:\n    # 将输入字符串解析为字典\n\
+          \    factors_dict = ast.literal_eval(factors)\n    extra_para_dict = ast.literal_eval(extra_para)\n\
+          \    \n    # 生成DSD设计\n    result_df = dsd.generate(factors_dict=factors_dict,\
+          \ n_fake_factors=2 if extra_para_dict == {} else extra_para_dict['n_fake_factors'])\n\
+          \    \n    result = {\n        \"result\": result_df.to_string(),\n    \
+          \    \"factors_dict\": factors_dict,\n        \"dsd_result\": result_df.to_dict()\n\
+          \    }\n    \n    return result"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 无法生成实验设计表
+        - key: factors_dict
+          type: object
+          value: '{}'
+        - key: dsd_result
+          type: object
+          value: '{}'
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          dsd_result:
+            children: null
+            type: object
+          factors_dict:
+            children: null
+            type: object
+          result:
+            children: null
+            type: string
+        selected: false
+        title: DSD实验设计
+        type: code
+        variables:
+        - value_selector:
+          - '1744337758034'
+          - exp
+          variable: exp
+        - value_selector:
+          - '1744337758034'
+          - factors
+          variable: factors
+        - value_selector:
+          - '1744337758034'
+          - extra_para
+          variable: extra_para
+      height: 90
+      id: '1744278097895'
+      position:
+        x: 1541.2237608124813
+        y: 276.5
+      positionAbsolute:
+        x: 1541.2237608124813
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 767090c5-dfad-4132-9073-557e3569cccc
+            value: Definitive Screening Design
+            varType: string
+            variable_selector:
+            - '1744337758034'
+            - exp
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: DSD实验判断
+        type: if-else
+      height: 126
+      id: '1744337710452'
+      position:
+        x: 1239
+        y: 276.5
+      positionAbsolute:
+        x: 1239
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 从用户给定的实验设计描述中提取关键参数
+        instruction: "从用户给定的实验设计描述中提取实验名称、实验设计可能存在的额外参数和因子水平。\n**注意**：除了Box-Behnken和Full\
+          \ factorial实验设计外，其他实验设计的factors只需要提供范围的最小值和最大值，如[-1,0,1]提取为[-1,1]\n\n可选的实验名称、额外的参数及因子水平示例如下：\n\
+          ## Full factorial：\nextra_para示例：'{}'\nfactors示例:{'压力':[50,60,70],'温度':[290,\
+          \ 320, 350],'流量':[0.9,1.0]}\n\n## 2-level fractional factorial：\n额外参数: 所需设计分辨率\n\
+          extra_para示例：{'res':3}\n因子：仅需要范围的最小值和最大值。如果提供超过两个水平，则取极值作为低/高水平。\nfactors示例:{'压力':[50,70],'温度':[290,\
+          \ 350],'流量':[0.9,1.0]}\n\n## Plackett-Burman：\nextra_para示例：'{}'\n因子：仅需要范围的最小值和最大值。\n\
+          factors示例:{'压力':[50,70],'温度':[290, 350],'流量':[0.9,1.0]}\n\n## Sukharev grid：\n\
+          额外参数：样本数必须满足：样本数的(1/维度)次方为整数（其中维度是变量数量）。num_samples: 需生成的样本数\nextra_para示例：{'num_samples':10}\n\
+          因子：仅需要范围的最小值和最大值。\nfactors示例:{'压力':[50,70],'温度':[290, 350],'流量':[0.9,1.0]}\n\
+          \n## Box-Behnken：\n额外参数：center：中心点数\nextra_para示例：{'center':1}\n因子：注意：因子需要3个水平。如未提供，函数将自动通过线性中分法创建3水平。\n\
+          factors示例:{'压力':[50,60,70],'温度':[290, 320, 350],'流量':[0.9,1.0,1.1]}\n\n\
+          ## Box-Wilson (Central-composite) with center-faced option, Box-Wilson (Central-composite)\
+          \ with center-inscribed option, Box-Wilson (Central-composite) with center-circumscribed\
+          \ option：\n若未指定，则默认选择Box-Wilson (Central-composite) with center-circumscribed\
+          \ option\n额外参数：\n- center : int数组，1x2整数数组，表示设计各区块的中心点数量。形如(n1, n2)，n1为\"\
+          立方体内\"区块中心点数，n2为\"立方体外\"区块中心点数\nextra_para示例：{'center':(2,2)}\n因子：仅需要范围的最小值和最大值。\n\
+          factors示例:{'压力':[50,70],'温度':[290, 350],'流量':[0.9,1.0]}\n\n## Latin hypercube\
+          \ (simple)：\n额外参数：    \n- num_samples: 需生成的样本数\n- prob_distribution: 随机抽样应用的解析概率分布。可选值:\
+          \ 'Normal', 'Poisson', 'Exponential', 'Beta', 'Gamma'。默认:None\nextra_para示例：{'num_samples':5,'prob_distribution':'Normal'}\n\
+          因子：仅需要范围的最小值和最大值。\nfactors示例:{'压力':[50,70],'温度':[290, 350],'流量':[0.9,1.0]}\n\
+          \n## Latin hypercube (space-filling), Random k-means cluster, Maximin reconstruction,\
+          \ Halton sequence based, Uniform random matrix：\n额外参数：    \n- num_samples:\
+          \ 需生成的样本数\nextra_para示例：{'num_samples':5}\n因子：仅需要范围的最小值和最大值。\nfactors示例:{'压力':[50,70],'温度':[290,\
+          \ 350],'流量':[0.9,1.0]}\n\n## Definitive Screening Design：\n额外参数：\n- n_fake_factors\
+          \ (int)：包含数值型伪因子以增加试验次数，扩大设计规模\nextra_para示例：{'n_fake_factors':2}\n因子：仅需要范围的最小值和最大值。注意：算法通过数据类型推断数值型/分类型因子：如需分类水平，请使用字符串数字如(\"\
+          1\", \"2\")\nfactors示例:{ '温度': [30, 90], 'Solvent': [\"A\", \"B\"]}"
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-32b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 实验名称
+          name: exp
+          required: true
+          type: string
+        - description: 实验因子及水平，字典格式
+          name: factors
+          required: true
+          type: string
+        - description: 实验设计所需的额外参数，字典格式，没有则为空字典
+          name: extra_para
+          required: true
+          type: string
+        query:
+        - '1744372089111'
+        - fine_exp_description
+        reasoning_mode: prompt
+        selected: false
+        title: 实验设计参数提取器
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 134
+      id: '1744337758034'
+      position:
+        x: 934.1665344320533
+        y: 276.5
+      positionAbsolute:
+        x: 934.1665344320533
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "from doepy3 import build\nimport ast\nimport warnings\nwarnings.filterwarnings(\"\
+          ignore\")\n\ndef main(exp: str, factors: str, extra_para: str) -> dict:\n\
+          \    factors_dict = ast.literal_eval(factors)\n    extra_para_dict = ast.literal_eval(extra_para)\n\
+          \n    if exp == \"Full factorial\":\n        # 处理全因子设计\n        result =\
+          \ build.full_fact(factors_dict)\n\n    elif exp == \"2-level fractional\
+          \ factorial\":\n        # 处理二水平部分因子设计\n        res = extra_para_dict['res']\
+          \ if extra_para_dict != {} else None\n        result = build.frac_fact_res(factors_dict,\
+          \ res=res)\n\n    elif exp == \"Plackett-Burman\":\n        # 处理Plackett-Burman设计\n\
+          \        result = build.plackett_burman(factors_dict)\n\n    elif exp ==\
+          \ \"Sukharev grid\":\n        # 处理Sukharev网格设计\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        result = build.sukharev(factors_dict,\
+          \ num_samples=num_samples)\n\n    elif exp == \"Box-Behnken\":\n       \
+          \ # 处理Box-Behnken设计\n        center = extra_para_dict['center'] if extra_para_dict\
+          \ != {} else 1\n        result = build.box_behnken(factors_dict, center=center)\n\
+          \n    elif exp == \"Box-Wilson (Central-composite) with center-faced option\"\
+          :\n        # 处理带有中心面对选项的Box-Wilson（中心复合）设计\n        center = extra_para_dict['center']\
+          \ if extra_para_dict != {} else (2, 2)\n        result = build.central_composite(factors_dict,\
+          \ center=center, face='ccf')\n\n    elif exp == \"Box-Wilson (Central-composite)\
+          \ with center-inscribed option\":\n        # 处理带有中心内切选项的Box-Wilson（中心复合）设计\n\
+          \        center = extra_para_dict['center'] if extra_para_dict != {} else\
+          \ (2, 2)\n        result = build.central_composite(factors_dict, center=center,\
+          \ face='cci')\n\n    elif exp == \"Box-Wilson (Central-composite) with center-circumscribed\
+          \ option\":\n        # 处理带有中心外接选项的Box-Wilson（中心复合）设计\n        center = extra_para_dict['center']\
+          \ if extra_para_dict != {} else (2, 2)\n        result = build.central_composite(factors_dict,\
+          \ center=center, face='ccc')\n\n    elif exp == \"Latin hypercube (simple)\"\
+          :\n        # 处理简单拉丁超立方设计\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        prob_distribution = extra_para_dict['prob_distribution']\
+          \ if extra_para_dict != {} else None\n        result = build.lhs(factors_dict,\
+          \ num_samples=num_samples, prob_distribution=prob_distribution)\n\n    elif\
+          \ exp == \"Latin hypercube (space-filling)\":\n        # 处理空间填充拉丁超立方设计\n\
+          \        num_samples = extra_para_dict['num_samples'] if extra_para_dict\
+          \ != {} else None\n        result = build.space_filling_lhs(factors_dict,\
+          \ num_samples=num_samples)\n\n    elif exp == \"Random k-means cluster\"\
+          :\n        # 处理随机k-means聚类\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        result = build.random_k_means(factors_dict,\
+          \ num_samples=num_samples)\n\n    elif exp == \"Maximin reconstruction\"\
+          :\n        # 处理最大最小重构\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        result = build.maximin(factors_dict,\
+          \ num_samples=num_samples)\n\n    elif exp == \"Halton sequence based\"\
+          :\n        # 处理基于Halton序列的设计\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        result = build.halton(factors_dict,\
+          \ num_samples=num_samples)\n\n    elif exp == \"Uniform random matrix\"\
+          :\n        # 处理均匀随机矩阵\n        num_samples = extra_para_dict['num_samples']\
+          \ if extra_para_dict != {} else None\n        result = build.uniform_random(factors_dict,\
+          \ num_samples=num_samples)\n\n    else:\n        # 处理未知的实验设计名称\n       \
+          \ result = '未知实验设计方法'\n\n    result.index = result.index + 1\n    return\
+          \ {\n        \"result\": result.to_string(),\n        \"exp_count\": len(result)\n\
+          \    }"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 无法生成实验设计
+        - key: exp_count
+          type: number
+          value: 0
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          exp_count:
+            children: null
+            type: number
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 其他实验设计
+        type: code
+        variables:
+        - value_selector:
+          - '1744337758034'
+          - exp
+          variable: exp
+        - value_selector:
+          - '1744337758034'
+          - factors
+          variable: factors
+        - value_selector:
+          - '1744337758034'
+          - extra_para
+          variable: extra_para
+      height: 90
+      id: '17443556537560'
+      position:
+        x: 2148
+        y: 425.5
+      positionAbsolute:
+        x: 2148
+        y: 425.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: false
+          groups: []
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '17443556537560'
+          - result
+        - - '1744376522033'
+          - result
+        - - '1744278097895'
+          - result
+      height: 152
+      id: '1744364078889'
+      position:
+        x: 2451
+        y: 351
+      positionAbsolute:
+        x: 2451
+        y: 351
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1756556854361'
+          - result
+          value_type: string
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1744364099175'
+      position:
+        x: 3211.1719894965754
+        y: 351
+      positionAbsolute:
+        x: 3211.1719894965754
+        y: 351
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 如果用户只提供因子数，则自动完善补全
+        instruction: '判断用户实验描述，满足以下三个任务条件则修改，否则不修改，返回的描述赋值给fine_exp_description
+
+
+          # 任务一
+
+          判断用户提供的实验描述中的因子是否提供了具体名字和范围，如果因子没有名称则使用X1-Xn指代，若因子没有水平具体数值则用-1,0,1等整数来指代。
+
+
+          ## 示例一
+
+          - 用户提供：“生成四因子三水平的DSD实验设计，虚拟因子为2，参数分别为温度、时间、料波比、浓度”
+
+          - 完善后：“生成四因子三水平的DSD实验设计，虚拟因子为2，参数分别为温度[-1，0，1]、时间[-1，0，1]、料波比[-1，0，1]、浓度[-1，0，1]”
+
+
+          ## 示例二
+
+          - 用户提供：“生成四因子三水平的DSD实验设计，虚拟因子为2”
+
+          - 完善后：“生成四因子三水平的DSD实验设计，虚拟因子为2个。因子：X1[-1，0，1]，X2[-1，0，1]，X3[-1，0，1]，X4[-1，0，1]”
+
+
+          # 任务二
+
+          判断用户描述中是否具体说明了使用哪种实验设计，若没有则默认使用DSD实验设计。
+
+          ## 示例一
+
+          - 用户提供：“生成四因子两水平的实验设计”
+
+          - 完善后：“生成四因子两水平的DSD实验设计。因子：X1[-1，1]，X2[-1，1]，X3[-1，1]，X4[-1，1]”
+
+
+          # 任务三
+
+          判断用户提供的实验描述是否使用了确定性筛选实验设计（DSD），且要求增加中心点。如果是DSD，且要求增加中心点，则提取中心点数赋值给dsd_center变量，没有则为0个。
+
+          '
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-32b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 完善后的实验描述
+          name: fine_exp_description
+          required: true
+          type: string
+        - description: dsd实验设计额外增加中心点实验个数
+          name: dsd_center
+          required: true
+          type: number
+        query:
+        - '1744273691090'
+        - exp_description
+        reasoning_mode: prompt
+        selected: false
+        title: 完善实验描述
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 134
+      id: '1744372089111'
+      position:
+        x: 631.166534432053
+        y: 276.5
+      positionAbsolute:
+        x: 631.166534432053
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '>'
+            id: 14eb21ef-e4ce-43b5-92aa-0716605330ad
+            numberVarType: constant
+            value: '0'
+            varType: number
+            variable_selector:
+            - '1744372089111'
+            - dsd_center
+          id: 'true'
+          logical_operator: and
+        desc: 判断是否给dsd实验设计额外添加中心点
+        selected: false
+        title: 是否增加中心点
+        type: if-else
+      height: 154
+      id: '1744373398619'
+      position:
+        x: 1845
+        y: 276.5
+      positionAbsolute:
+        x: 1845
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import itertools\n\nimport pandas as pd\n\n\ndef add_center_points(dsd,\
+          \ factors_dict, n):\n    # 确定分类变量和连续变量\n    categorical_cols = [col for\
+          \ col, levels in factors_dict.items() if isinstance(levels[0], str)]\n \
+          \   continuous_cols = [col for col, levels in factors_dict.items() if not\
+          \ isinstance(levels[0], str)]\n\n    # 获取分类变量的所有组合\n    unique_combinations\
+          \ = list(itertools.product(*[factors_dict[col] for col in categorical_cols]))\n\
+          \    m = len(unique_combinations)\n\n    # 计算连续变量的中心点值\n    center_values\
+          \ = {col: sum(factors_dict[col]) / len(factors_dict[col]) for col in continuous_cols}\n\
+          \n    # 生成中心点行\n    center_points_df = pd.DataFrame([center_values] * (m\
+          \ * n))\n\n    # 生成分类变量组合的DataFrame\n    repeated_categories = pd.DataFrame(\n\
+          \        list(itertools.chain.from_iterable(itertools.repeat(combination,\
+          \ n) for combination in unique_combinations)),\n        columns=categorical_cols)\n\
+          \n    # 合并中心点的数值和分类变量组合\n    center_points_df = pd.concat([repeated_categories.reset_index(drop=True),\
+          \ center_points_df], axis=1)\n\n    # 给新添加的中心点行分配新的索引\n    start_idx = dsd.shape[0]\
+          \  # 使用DataFrame的长度而不是索引来计算起点\n    center_points_df.index = range(start_idx,\
+          \ start_idx + len(center_points_df))\n\n    # 将中心点添加到原始数据框末尾\n    df_with_centers\
+          \ = pd.concat([dsd, center_points_df], ignore_index=True)  # 使用ignore_index=True来重新索引\n\
+          \n    return df_with_centers\n\n\ndef main(factors: object, dsd_result:\
+          \ object, n: int) -> dict:\n    dsd_df = pd.DataFrame(dsd_result)\n    result\
+          \ = add_center_points(dsd_df, factors, n)\n    result = result.reset_index(drop=True)\
+          \  # 先删除原索引\n    result.index = result.index + 1  # 索引从1开始（对应实验次数）\n\n \
+          \   # 计算实验总次数（数据框的行数）\n    experiment_count = len(result)\n\n    return\
+          \ {\n        \"result\": result.to_string(),\n        \"exp_count\": experiment_count\n\
+          \    }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 无法生成实验设计
+        - key: exp_count
+          type: number
+          value: 0
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          exp_count:
+            children: null
+            type: number
+          result:
+            children: null
+            type: string
+        selected: false
+        title: DSD增加中心点
+        type: code
+        variables:
+        - value_selector:
+          - '1744278097895'
+          - factors_dict
+          variable: factors
+        - value_selector:
+          - '1744278097895'
+          - dsd_result
+          variable: dsd_result
+        - value_selector:
+          - '1744372089111'
+          - dsd_center
+          variable: n
+      height: 90
+      id: '1744376522033'
+      position:
+        x: 2148
+        y: 276.5
+      positionAbsolute:
+        x: 2148
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: 首先统计分类变量个数，若个数在两个以上则提取分类变量的名称和值到变量class_x中（名称和值用“：”隔开），提取不包含分类变量的实验设计描述到变量exp_description中。若个数在两个以下则变量class_x赋值为“无”，原封不动将输入赋值给变量exp_description。
+        model:
+          completion_params:
+            seed: 1234
+            temperature: 0.7
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 分类变量名称和值
+          name: class_x
+          required: true
+          type: string
+        - description: 实验设计描述
+          name: exp_description
+          required: true
+          type: string
+        query:
+        - '1744273691090'
+        - exp_description
+        reasoning_mode: prompt
+        selected: false
+        title: 分类变量和实验描述提取
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1756553929651'
+      position:
+        x: 329.6140560570158
+        y: 276.5
+      positionAbsolute:
+        x: 329.6140560570158
+        y: 276.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import pandas as pd\nimport numpy as np\nfrom io import StringIO\n\n\
+          def main(arg1: str, arg2: str) -> dict:\n    # 解析arg2为DataFrame\n    df\
+          \ = pd.read_csv(StringIO(arg2), sep='\\s+')\n    \n    if arg1 == \"无\"\
+          :\n        result = df\n    else:\n        # 解析arg1获取分类变量名和值\n        var_name,\
+          \ values_str = arg1.split('：')\n        values = values_str.split(',')\n\
+          \        num_values = len(values)\n        num_rows = len(df)\n        \n\
+          \        # 计算每个值应出现的基础次数和剩余次数\n        base_count = num_rows // num_values\n\
+          \        remainder = num_rows % num_values\n        \n        # 创建初始分配列表\n\
+          \        assignment = []\n        for i, value in enumerate(values):\n \
+          \           # 前remainder个值多分配一次\n            count = base_count + 1 if i\
+          \ < remainder else base_count\n            assignment.extend([value] * count)\n\
+          \        \n        # 随机打乱分配列表\n        np.random.shuffle(assignment)\n \
+          \       \n        # 添加到DataFrame中\n        df[var_name] = assignment\n \
+          \       result = df\n    \n    return {\n        \"result\": result.to_string(),\n\
+          \    }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: 无法生成实验设计
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 随机分配分类变量
+        type: code
+        variables:
+        - value_selector:
+          - '1756553929651'
+          - class_x
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1744364078889'
+          - output
+          value_type: string
+          variable: arg2
+      height: 90
+      id: '1756556854361'
+      position:
+        x: 2834.4547574918115
+        y: 351
+      positionAbsolute:
+        x: 2834.4547574918115
+        y: 351
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -763.9842649189245
+      y: 89.42517804569269
+      zoom: 0.8499364190765336

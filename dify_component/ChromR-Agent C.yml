@@ -1,0 +1,1224 @@
+app:
+  description: 进行实验设计时，大模型自动生成硬件运行代码（json），并命令柱层析硬件根据配置文件自动化运行。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: ChromR-Agent C
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.54@a719a5a226596151af6ff33fa710a74476faa6e1afde9e4a201ff8a7803857ff
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1751595306046-1-1751595825312-target
+      selected: false
+      source: '1751595306046'
+      sourceHandle: '1'
+      target: '1751595825312'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1751595825312-source-1751597559994-target
+      selected: false
+      source: '1751595825312'
+      sourceHandle: source
+      target: '1751597559994'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1751597559994-true-1751597303314-target
+      selected: false
+      source: '1751597559994'
+      sourceHandle: 'true'
+      target: '1751597303314'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: end
+      id: 1751597303314-source-1751267772565-target
+      selected: false
+      source: '1751597303314'
+      sourceHandle: source
+      target: '1751267772565'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1751597559994-false-1751597640536-target
+      selected: false
+      source: '1751597559994'
+      sourceHandle: 'false'
+      target: '1751597640536'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: 1751595306046-2-1751598163652-target
+      selected: false
+      source: '1751595306046'
+      sourceHandle: '2'
+      target: '1751598163652'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: iteration
+      id: 1751598163652-source-1751600072342-target
+      selected: false
+      source: '1751598163652'
+      sourceHandle: source
+      target: '1751600072342'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1751600072342'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1751600072342start-source-1751600188136-target
+      selected: false
+      source: 1751600072342start
+      sourceHandle: source
+      target: '1751600188136'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: llm
+      id: 1751600072342-source-1751600578961-target
+      selected: false
+      source: '1751600072342'
+      sourceHandle: source
+      target: '1751600578961'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1751600578961-source-1751611629943-target
+      selected: false
+      source: '1751600578961'
+      sourceHandle: source
+      target: '1751611629943'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: end
+      id: 1751611672253-source-1751612390147-target
+      selected: false
+      source: '1751611672253'
+      sourceHandle: source
+      target: '1751612390147'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: 1751595306046-1751595484504-1751612463610-target
+      selected: false
+      source: '1751595306046'
+      sourceHandle: '1751595484504'
+      target: '1751612463610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: http-request
+      id: 1751612463610-source-1751612538104-target
+      selected: false
+      source: '1751612463610'
+      sourceHandle: source
+      target: '1751612538104'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 1751612538104-source-1751613137004-target
+      selected: false
+      source: '1751612538104'
+      sourceHandle: source
+      target: '1751613137004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1751613137004-source-1751613530539-target
+      selected: false
+      source: '1751613137004'
+      sourceHandle: source
+      target: '1751613530539'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1751619959323-source-1751611672253-target
+      selected: false
+      source: '1751619959323'
+      sourceHandle: source
+      target: '1751611672253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1751611629943-true-1751619959323-target
+      selected: false
+      source: '1751611629943'
+      sourceHandle: 'true'
+      target: '1751619959323'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1751611629943-false-1751612428295-target
+      selected: false
+      source: '1751611629943'
+      sourceHandle: 'false'
+      target: '1751612428295'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1751267762086-source-1751595306046-target
+      source: '1751267762086'
+      sourceHandle: source
+      target: '1751595306046'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 需求
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+        - label: 硬件服务器地址
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: hardware_server_ip
+        - label: 服务器ip
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: server_ip
+      height: 142
+      id: '1751267762086'
+      position:
+        x: 30
+        y: 304.5
+      positionAbsolute:
+        x: 30
+        y: 304.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751597303314'
+          - body
+          variable: result
+        selected: false
+        title: 创建实验结果
+        type: end
+      height: 90
+      id: '1751267772565'
+      position:
+        x: 1721.1571656651035
+        y: 341.3102594723954
+      positionAbsolute:
+        x: 1721.1571656651035
+        y: 341.3102594723954
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 创建一个实验
+        - id: '2'
+          name: 创建实验设计表
+        - id: '1751595484504'
+          name: 运行或停止一个实验
+        desc: ''
+        instruction: '1. 用户给出单一实验描述和参数为创建一个实验
+
+          2. 用户给出实验设计表时为创建实验设计表
+
+          3. 只让运行或停止一个实验时选择“运行或停止一个实验”'
+        instructions: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-long
+          provider: langgenius/tongyi/tongyi
+        query_variable_selector:
+        - '1751267762086'
+        - query
+        selected: false
+        title: 用户意图判断
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 210
+      id: '1751595306046'
+      position:
+        x: 333
+        y: 304.5
+      positionAbsolute:
+        x: 333
+        y: 304.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 242d263d-7d00-47e2-846e-53049dbdb330
+          role: system
+          text: "# 实验记录数据模型\nclass ExperimentCreateRequest(BaseModel):\n  control_command:\
+            \ dict = Field(..., description=\"柱层析控制指令\")  # 必填\n  feed_number: str\
+            \ = Field(..., description=\"上样液批次\", max_length=50)\n\n  phase_wash:\
+            \ str = Field(..., description=\"洗涤溶剂\", max_length=50)\n  phase_elute:\
+            \ str = Field(..., description=\"洗脱溶剂\", max_length=50)\n  phase_refresh:\
+            \ str = Field(..., description=\"再生溶剂\", max_length=50)\n  phase_equilibrate:\
+            \ str = Field(..., description=\"平衡溶剂\", max_length=50)\n  resin: str\
+            \ = Field(..., description=\"树脂型号\", max_length=50)\n\n  column_height:\
+            \ float = Field(..., description=\"柱高 (cm)\", gt=0)  # 必填\n  column_inner_diameter:\
+            \ float = Field(..., description=\"柱内径 (cm)\", gt=0)\n  bed_height: float\
+            \ = Field(..., description=\"床层高度 (cm)\", gt=0)\n  liquid_height: float\
+            \ = Field(..., description=\"液面高度 (cm)\", gt=0)\n\ncontrol_command字段示例，各个字段必填，且格式必须一致\n\
+            {\n  \"feed_flow\": 2.5,           // 上样流量 (BV/h)\n  \"feed_time\": 1.0,\
+            \           // 上样时间 (h)\n  \"wash_flow\": 3.0,           // 洗涤流量 (BV/h)\n\
+            \  \"wash_time\": 0.5,           // 洗涤时间 (h)\n  \"elute_flow\": 2.0, \
+            \         // 洗脱流量 (BV/h)\n  \"elute_time\": 2.0,          // 洗脱时间 (h)\n\
+            \  \"refresh_flow\": 2.0,        // 再生流量 (BV/h)\n  \"equilibrate_flow\"\
+            : 1.5,    // 平衡流量 (BV/h)\n  \"fraction\": \"F1\"     // 馏分配置，只能是\"F1\"\
+            、\"F2\"和\"F3\"\n}\n\n请根据ExperimentCreateRequest模型、control_command字段示例和用户描述生成正确的json请求体。\n\
+            注意：\n1. 检查用户描述是否提供了所有字段的内容，若没有则告诉用户所有需要补齐的字段，即返回格式如下\n“生成实验错误：\n1. 缺少字段1\n\
+            2. 缺少字段2\n......\nn. 缺少字段n”\n\n2. 直接给出生成的json请求体，不要使用代码块进行包裹"
+        - id: 86268e07-9bba-4042-b508-8178350834c7
+          role: user
+          text: '用户描述如下：
+
+            {{#1751267762086.query#}}'
+        selected: false
+        title: 实验记录生成
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751595825312'
+      position:
+        x: 636
+        y: 304.5
+      positionAbsolute:
+        x: 636
+        y: 304.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-1414
+            key: ''
+            type: text
+            value: '{{#1751595825312.text#}}'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: 服务器实验创建失败
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        desc: ''
+        error_strategy: default-value
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 创建实验
+        type: http-request
+        url: http://{{#1751267762086.server_ip#}}:8000/createExp
+        variables: []
+      height: 195
+      id: '1751597303314'
+      position:
+        x: 1403
+        y: 304.5
+      positionAbsolute:
+        x: 1403
+        y: 304.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not contains
+            id: 4b10c3eb-04d0-4136-bacb-42507534224b
+            value: 错误
+            varType: string
+            variable_selector:
+            - '1751595825312'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: 判断用户的实验记录描述是否完整
+        selected: false
+        title: 检查用户描述
+        type: if-else
+      height: 154
+      id: '1751597559994'
+      position:
+        x: 1019.5
+        y: 304.5
+      positionAbsolute:
+        x: 1019.5
+        y: 304.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751595825312'
+          - text
+          variable: result
+        selected: false
+        title: 用户描述不完善
+        type: end
+      height: 90
+      id: '1751597640536'
+      position:
+        x: 1403
+        y: 533.5
+      positionAbsolute:
+        x: 1403
+        y: 533.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 提示实验设计描述和实验设计表
+        instruction: "用户给出的描述应该包括以下两个部分：\n1. 实验设计描述，包括使用的实验设计名称，该实验设计对应的固定参数等。除了实验设计表外的部分就算实验设计描述，但注意只提取与实验设计相关的内容，同时不漏掉任何参数。格式参考如下：\n\
+          实验设计名称：全因子实验设计\n固定参数：\n  - 洗脱量：3.0 BV\n  - 洗脱时间范围：1.0-2.5 h\n  - 实验次数：4\
+          \ 次\n2. 实验设计表，包括每个实验每个变量的值。请返回json列表格式，但不使用代码块包裹，例如\n [ {\n      \"洗脱量\"\
+          : 1,\n      \"洗脱时间\": 2\n    },\n    {\n      \"洗脱量\": 2.5,\n      \"洗脱时间\"\
+          : 1.4\n    }]\n其中\"洗脱量\"和\"洗脱时间\"是变量名"
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-long
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 实验设计描述
+          name: exp_design_description
+          required: true
+          type: string
+        - description: 实验设计表
+          name: exp_design
+          required: true
+          type: array[object]
+        query:
+        - '1751267762086'
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 实验设计提取
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 118
+      id: '1751598163652'
+      position:
+        x: 636
+        y: 612.5
+      positionAbsolute:
+        x: 636
+        y: 612.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 197
+        is_parallel: true
+        iterator_selector:
+        - '1751598163652'
+        - exp_design
+        output_selector:
+        - '1751600188136'
+        - text
+        output_type: array[string]
+        parallel_nums: 100
+        selected: false
+        start_node_id: 1751600072342start
+        title: 迭代生成实验记录
+        type: iteration
+        width: 404
+      height: 197
+      id: '1751600072342'
+      position:
+        x: 939
+        y: 604.5
+      positionAbsolute:
+        x: 939
+        y: 604.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 404
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1751600072342start
+      parentId: '1751600072342'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 963
+        y: 672.5
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1751600072342'
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-long
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: c10eebd9-fbed-4b94-a7d5-5f931a608a85
+          role: system
+          text: "# 实验记录数据模型\nclass ExperimentCreateRequest(BaseModel):\n  control_command:\
+            \ dict = Field(..., description=\"柱层析控制指令\")  # 必填\n  feed_number: str\
+            \ = Field(..., description=\"上样液批次\", max_length=50)\n\n  phase_wash:\
+            \ str = Field(..., description=\"洗涤溶剂\", max_length=50)\n  phase_elute:\
+            \ str = Field(..., description=\"洗脱溶剂\", max_length=50)\n  phase_refresh:\
+            \ str = Field(..., description=\"再生溶剂\", max_length=50)\n  phase_equilibrate:\
+            \ str = Field(..., description=\"平衡溶剂\", max_length=50)\n  resin: str\
+            \ = Field(..., description=\"树脂型号\", max_length=50)\n\n  column_height:\
+            \ float = Field(..., description=\"柱高 (cm)\", gt=0)  # 必填\n  column_inner_diameter:\
+            \ float = Field(..., description=\"柱内径 (cm)\", gt=0)\n  bed_height: float\
+            \ = Field(..., description=\"床层高度 (cm)\", gt=0)\n  liquid_height: float\
+            \ = Field(..., description=\"液面高度 (cm)\", gt=0)\n\ncontrol_command字段示例，各个字段必填，且格式必须一致\n\
+            {\n  \"feed_flow\": 2.5,           // 上样流量 (BV/h)\n  \"feed_time\": 1.0,\
+            \           // 上样时间 (h)\n  \"wash_flow\": 3.0,           // 洗涤流量 (BV/h)\n\
+            \  \"wash_time\": 0.5,           // 洗涤时间 (h)\n  \"elute_flow\": 2.0, \
+            \         // 洗脱流量 (BV/h)\n  \"elute_time\": 2.0,          // 洗脱时间 (h)\n\
+            \  \"refresh_flow\": 2.0,        // 再生流量 (BV/h)\n  \"equilibrate_flow\"\
+            : 1.5,    // 平衡流量 (BV/h)\n  \"fraction\": \"F1\"     // 馏分配置，只能是\"F1\"\
+            、\"F2\"和\"F3\"\n}\n\n请根据ExperimentCreateRequest模型、control_command字段示例、实验设计描述和实验变量生成正确的json请求体。\n\
+            注意：\n1. 若描述中没有给出必填字段的相关内容，则返回“生成错误”，并告诉用户缺少的字段\n2. 直接给出生成的json请求体，不要使用代码块进行包裹"
+        - id: d5a16bcd-ffe1-4a90-93e2-04f56d0df068
+          role: user
+          text: '以下是实验描述：
+
+            {{#1751598163652.exp_design_description#}}
+
+            以下是该实验的实验变量和值：
+
+            {{#1751600072342.item#}}'
+        selected: false
+        title: 实验记录生成
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751600188136'
+      parentId: '1751600072342'
+      position:
+        x: 90
+        y: 65
+      positionAbsolute:
+        x: 1029
+        y: 669.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 检查生成的实验记录是否有生成错误的
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-long
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 939d827f-5dc4-416f-9d70-1abd6a2a87eb
+          role: system
+          text: "你的任务是检查创建实验设计表创建请求的json请求体是否存在错误\n\n# 实验记录数据模型\nclass ExperimentCreateRequest(BaseModel):\n\
+            \    control_command: dict = Field(..., description=\"柱层析控制指令\")  # 必填\n\
+            \    feed_number: str = Field(..., description=\"上样液批次\", max_length=50)\
+            \  \n    \n    phase_wash: Optional[str] = Field(None, description=\"\
+            洗涤溶剂\", max_length=50)  # 可选\n    phase_elute: Optional[str] = Field(None,\
+            \ description=\"洗脱溶剂\", max_length=50)\n    phase_refresh: Optional[str]\
+            \ = Field(None, description=\"再生溶剂\", max_length=50)\n    phase_equilibrate:\
+            \ Optional[str] = Field(None, description=\"平衡溶剂\", max_length=50)\n \
+            \   resin: Optional[str] = Field(None, description=\"树脂型号\", max_length=50)\n\
+            \n    column_height: float = Field(..., description=\"柱高 (cm)\", gt=0)\
+            \  # 必填\n    column_inner_diameter: float = Field(..., description=\"\
+            柱内径 (cm)\", gt=0)\n    bed_height: float = Field(..., description=\"床层高度\
+            \ (cm)\", gt=0)\n    liquid_height: float = Field(..., description=\"\
+            液面高度 (cm)\", gt=0)\n\ncontrol_command字段示例，各个字段必填，且格式必须一致\n{\n  \"feed_flow\"\
+            : 2.5,           // 上样流量 (BV/h)\n  \"feed_time\": 1.0,           // 上样时间\
+            \ (h)\n  \"wash_flow\": 3.0,           // 洗涤流量 (BV/h)\n  \"wash_time\"\
+            : 0.5,           // 洗涤时间 (h)\n  \"elute_flow\": 2.0,          // 洗脱流量\
+            \ (BV/h)\n  \"elute_time\": 2.0,          // 洗脱时间 (h)\n  \"refresh_flow\"\
+            : 2.0,        // 再生流量 (BV/h)\n  \"equilibrate_flow\": 1.5,    // 平衡流量\
+            \ (BV/h)\n  \"fraction\": \"F1\"     // 馏分配置，只能是\"F1\"、\"F2\"和\"F3\"\n\
+            }\n\n请根据ExperimentCreateRequest模型、control_command字段示例检查json请求体是否正确。\n\
+            若正确请返回“一切正常”\n若存在错误请返回\n“实验设计表请求存在错误：\n1. 错误1内容\n2. 错误2内容”"
+        - id: 886a4f2f-10a9-45e0-bebf-833b6983928e
+          role: user
+          text: '以下是json请求体中exps: list[ExperimentCreateRequest]的内容：
+
+            {{#1751600072342.output#}}'
+        selected: false
+        title: 实验设计表检查
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 118
+      id: '1751600578961'
+      position:
+        x: 1403
+        y: 661.6799587777922
+      positionAbsolute:
+        x: 1403
+        y: 661.6799587777922
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 57350707-08ad-4b3f-bbce-d674a11ef0c3
+            value: 正常
+            varType: string
+            variable_selector:
+            - '1751600578961'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 检查错误
+        type: if-else
+      height: 126
+      id: '1751611629943'
+      position:
+        x: 1706
+        y: 608.5
+      positionAbsolute:
+        x: 1706
+        y: 608.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-4063
+            key: ''
+            type: text
+            value: '{
+
+              "exps":{{#1751619959323.exps#}},
+
+              "description": "{{#1751598163652.exp_design_description#}}",
+
+              "exp_designs":{{#1751619959323.exp_design#}}
+
+              }'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: 实验设计表创建失败
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        desc: ''
+        error_strategy: default-value
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 创建实验设计
+        type: http-request
+        url: http://{{#1751267762086.server_ip#}}:8000/create_ExpDesign
+        variables: []
+      height: 195
+      id: '1751611672253'
+      position:
+        x: 2312
+        y: 737.5
+      positionAbsolute:
+        x: 2312
+        y: 737.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751611672253'
+          - body
+          variable: result
+        selected: false
+        title: 创建实验设计结果
+        type: end
+      height: 90
+      id: '1751612390147'
+      position:
+        x: 2615
+        y: 737.5
+      positionAbsolute:
+        x: 2615
+        y: 737.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751600578961'
+          - text
+          variable: result
+        selected: false
+        title: 实验设计表生成错误
+        type: end
+      height: 90
+      id: '1751612428295'
+      position:
+        x: 2009
+        y: 626.5
+      positionAbsolute:
+        x: 2009
+        y: 626.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: '1. 请从用户的描述中提取需要运行或停止的实验id，实验id是一个正整数
+
+          2. 请判断用户是要停止，还是运行一个实验'
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-14b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 实验id
+          name: exp_id
+          required: true
+          type: number
+        - description: 值=["stop_exp","run_exp"]
+          name: run_or_stop
+          required: true
+          type: string
+        query:
+        - '1751267762086'
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 实验id提取
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751612463610'
+      position:
+        x: 636
+        y: 841.5
+      positionAbsolute:
+        x: 636
+        y: 841.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-4168
+            key: ''
+            type: text
+            value: '{
+
+              "type":"{{#1751612463610.run_or_stop#}}",
+
+              "experiment":{{#1751612463610.exp_id#}}
+
+              }'
+          type: json
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 运行或停止实验
+        type: http-request
+        url: http://{{#1751267762086.hardware_server_ip#}}:8100/control/system
+        variables: []
+      height: 159
+      id: '1751612538104'
+      position:
+        x: 1019.5
+        y: 841.5
+      positionAbsolute:
+        x: 1019.5
+        y: 841.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "实验id：{{ exp_id }}{{ '运行' if  run_or_stop  == 'run_exp' else '停止'\
+          \ }}\r\n{{ '成功！' if status_code == 200 else '失败！' }}"
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1751612538104'
+          - status_code
+          variable: status_code
+        - value_selector:
+          - '1751612463610'
+          - run_or_stop
+          variable: run_or_stop
+        - value_selector:
+          - '1751612463610'
+          - exp_id
+          variable: exp_id
+      height: 54
+      id: '1751613137004'
+      position:
+        x: 1396.5040718578125
+        y: 871.60708583724
+      positionAbsolute:
+        x: 1396.5040718578125
+        y: 871.60708583724
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751613137004'
+          - output
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1751613530539'
+      position:
+        x: 1699.5040718578125
+        y: 886.971496995312
+      positionAbsolute:
+        x: 1699.5040718578125
+        y: 886.971496995312
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: tzl
+        desc: ''
+        height: 204
+        selected: false
+        showAuthor: false
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"创建实验，柱高30.1cm，柱内径1.5cm，液面高度2cm，床层高度21cm，树脂AB-8，上样液批号250403，洗涤液10%乙醇水，洗脱液60%乙醇水，再生液20%NaOH溶液，平衡液为纯水","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"控制命令{","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"feed_flow\":
+          2.5,           // 上样流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"feed_time\":
+          0.05,           // 上样时间 (h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"wash_flow\":
+          3.0,           // 洗涤流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"wash_time\":
+          0.05,           // 洗涤时间 (h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"elute_flow\":
+          2.0,          // 洗脱流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"elute_time\":
+          0.05,          // 洗脱时间 (h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"refresh_flow\":
+          60,        // 再生流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"equilibrate_flow\":
+          60,    // 平衡流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"fraction\":
+          \"F1\"            // 馏分配置，只能是\"F1\"、\"F2\"和\"F3\"","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"}","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: yellow
+        title: ''
+        type: ''
+        width: 420
+      height: 204
+      id: '1751616903370'
+      position:
+        x: 451.22300814230675
+        y: 57.57614249721715
+      positionAbsolute:
+        x: 451.22300814230675
+        y: 57.57614249721715
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 420
+    - data:
+        author: tzl
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"创建实验测试","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1751616946967'
+      position:
+        x: 451.22300814230675
+        y: -34.446033092419015
+      positionAbsolute:
+        x: 451.22300814230675
+        y: -34.446033092419015
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: tzl
+        desc: ''
+        height: 230
+        selected: false
+        showAuthor: false
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"创建DSD实验设计表，柱高40cm，柱内径1.5cm，液面高度2cm，床层高度30cm，树脂d101，上样液批号250403，洗涤液10%乙醇水，洗脱液60%乙醇水，再生液20%NaOH溶液，平衡液为纯水","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"控制命令{","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"wash_flow\":
+          3.0,           // 洗涤流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"elute_time\":
+          2.0,          // 洗脱时间 (h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"refresh_flow\":
+          2.0,        // 再生流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"equilibrate_flow\":
+          1.5,    // 平衡流量 (BV/h)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"  \"fraction\":
+          \"F1\"            // 馏分配置，只能是\"F1\"、\"F2\"和\"F3\"","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"}","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"实验设计表如下：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"    洗脱时间  洗脱流量  上样时间  上样流量","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"1    2.0   4.0   2.0   5.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2    2.0   2.0   1.0   2.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"3    3.0   3.0   1.0   5.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"4    1.0   3.0   2.0   2.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"5    3.0   2.0   1.5   2.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"6    1.0   4.0   1.5   5.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"7    3.0   4.0   1.0   3.5","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"8    1.0   2.0   2.0   3.5","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"9    3.0   4.0   2.0   2.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"10   1.0   2.0   1.0   5.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"11   3.0   2.0   2.0   5.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"12   1.0   4.0   1.0   2.0","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"13   2.0   3.0   1.5   3.5","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: yellow
+        title: ''
+        type: ''
+        width: 385
+      height: 230
+      id: '1751617283733'
+      position:
+        x: -48.72150588228476
+        y: 661.6799587777922
+      positionAbsolute:
+        x: -48.72150588228476
+        y: 661.6799587777922
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 385
+    - data:
+        author: tzl
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"创建实验设计测试","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1751617300841'
+      position:
+        x: -48.72150588228476
+        y: 577.1622555831798
+      positionAbsolute:
+        x: -48.72150588228476
+        y: 577.1622555831798
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        code: "\ndef main(arg1,arg2):\n    import json\n    exp_design = json.dumps(arg1,\
+          \ indent=2, ensure_ascii=False)\n    exps = f'[{\",\".join(arg2)}]'\n  \
+          \  return {\n        \"exp_design\": exp_design,\n        \"exps\":exps\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          exp_design:
+            children: null
+            type: string
+          exps:
+            children: null
+            type: string
+        selected: false
+        title: json转字符串
+        type: code
+        variables:
+        - value_selector:
+          - '1751598163652'
+          - exp_design
+          variable: arg1
+        - value_selector:
+          - '1751600072342'
+          - output
+          variable: arg2
+      height: 54
+      id: '1751619959323'
+      position:
+        x: 2009
+        y: 755.5
+      positionAbsolute:
+        x: 2009
+        y: 755.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 184.4436397249483
+      y: -449.5932815778838
+      zoom: 1.3195079107728942

@@ -1,0 +1,608 @@
+app:
+  description: '色谱专家问答模块
+
+    可根据用户的描述进行文献和知识库检索，模块基于检索结果和柱色谱大模型的回答进行综合后返回。该模块结合了柱层析垂直领域大模型、中国药典和最新文献数据，可以用于柱色谱工艺参数推荐或专业知识回答。
+
+    '
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: ChromR-Agent A
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/xinference:0.0.5@f24040a5f10ca2d2724b1b345faf7a2a178a56ef9a7ad3faf9833bc1321f499b
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.54@a719a5a226596151af6ff33fa710a74476faa6e1afde9e4a201ff8a7803857ff
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: parameter-extractor
+      id: 1751115907450-source-1751116978803-target
+      source: '1751115907450'
+      sourceHandle: source
+      target: '1751116978803'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: tool
+      id: 1751116978803-source-1751116884502-target
+      source: '1751116978803'
+      sourceHandle: source
+      target: '1751116884502'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1751115907450-source-1751117804944-target
+      source: '1751115907450'
+      sourceHandle: source
+      target: '1751117804944'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1751115907450-source-1751116301538-target
+      source: '1751115907450'
+      sourceHandle: source
+      target: '1751116301538'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1751116301538-source-1751250190786-target
+      source: '1751116301538'
+      sourceHandle: source
+      target: '1751250190786'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1751117804944-source-1751250190786-target
+      source: '1751117804944'
+      sourceHandle: source
+      target: '1751250190786'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1751116884502-source-1751250190786-target
+      source: '1751116884502'
+      sourceHandle: source
+      target: '1751250190786'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1751250190786-source-1751117886276-target
+      source: '1751250190786'
+      sourceHandle: source
+      target: '1751117886276'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 柱层析专业问题
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: query
+      height: 90
+      id: '1751115907450'
+      position:
+        x: 30
+        y: 244.5
+      positionAbsolute:
+        x: 30
+        y: 244.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 8096
+            temperature: 0.3
+          mode: completion
+          name: chrom-llm-V1
+          provider: langgenius/xinference/xinference
+        prompt_template:
+          edition_type: basic
+          text: 'Here are the chat histories between human and assistant, inside <histories></histories>
+            XML tags.
+
+
+            <histories>
+
+
+            </histories>
+
+
+
+            Human: {{#1751115907450.query#}}
+
+            Assistant:'
+        selected: false
+        title: 柱层析大模型
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751116301538'
+      position:
+        x: 636
+        y: 244.5
+      positionAbsolute:
+        x: 636
+        y: 244.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 文献请求描述，或文献综述主题
+            ja_JP: 文献请求描述，或文献综述主题
+            pt_BR: 文献请求描述，或文献综述主题
+            zh_Hans: 文献请求描述，或文献综述主题
+          label:
+            en_US: 主题描述
+            ja_JP: 主题描述
+            pt_BR: 主题描述
+            zh_Hans: 主题描述
+          llm_description: 文献请求描述，或文献综述主题
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 文献数据库，可选arxiv、PubMed和scopus
+            ja_JP: 文献数据库，可选arxiv、PubMed和scopus
+            pt_BR: 文献数据库，可选arxiv、PubMed和scopus
+            zh_Hans: 文献数据库，可选arxiv、PubMed和scopus
+          label:
+            en_US: 文献数据库
+            ja_JP: 文献数据库
+            pt_BR: 文献数据库
+            zh_Hans: 文献数据库
+          llm_description: 文献数据库，可选arxiv、PubMed和scopus
+          max: null
+          min: null
+          name: database
+          options:
+          - label:
+              en_US: Scopus
+              ja_JP: Scopus
+              pt_BR: Scopus
+              zh_Hans: Scopus
+            value: Scopus
+          - label:
+              en_US: PubMed
+              ja_JP: PubMed
+              pt_BR: PubMed
+              zh_Hans: PubMed
+            value: PubMed
+          - label:
+              en_US: arXiv
+              ja_JP: arXiv
+              pt_BR: arXiv
+              zh_Hans: arXiv
+            value: arXiv
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+            ja_JP: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+            pt_BR: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+            zh_Hans: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+          label:
+            en_US: 是否文献综述
+            ja_JP: 是否文献综述
+            pt_BR: 是否文献综述
+            zh_Hans: 是否文献综述
+          llm_description: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+          max: null
+          min: null
+          name: review
+          options:
+          - label:
+              en_US: 是
+              ja_JP: 是
+              pt_BR: 是
+              zh_Hans: 是
+            value: 是
+          - label:
+              en_US: 否
+              ja_JP: 否
+              pt_BR: 否
+              zh_Hans: 否
+            value: 否
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        params:
+          database: ''
+          query: ''
+          review: ''
+        provider_id: c1089e27-7f43-4aaa-ae7b-533f8101e196
+        provider_name: 文献检索与综述
+        provider_type: workflow
+        selected: false
+        title: 文献检索与综述
+        tool_configurations: {}
+        tool_label: 文献检索与综述
+        tool_name: Literature_Search
+        tool_parameters:
+          database:
+            type: variable
+            value:
+            - '1751116978803'
+            - database
+          query:
+            type: mixed
+            value: '{{#1751116978803.query#}}'
+          review:
+            type: variable
+            value:
+            - '1751116978803'
+            - review
+        type: tool
+      height: 54
+      id: '1751116884502'
+      position:
+        x: 636
+        y: 465.47574625141726
+      positionAbsolute:
+        x: 636
+        y: 465.47574625141726
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: '任务一：根据用户的描述提取文献综述或文献检索的主题，注意主题精简且契合，然后填入query
+
+          任务二：根据用户的描述判断使用哪个文献检索数据库进行检索能够获得更加可靠的信息
+
+          总共有三个数据库，只能填这三个：
+
+          1. arXiv：适合检索计算机、数学、物理、人工智能算法之类的文献
+
+          2. PubMed：适合检索生物医学相关的文献
+
+          3. Scopus：检索范围广，不在以上两个数据库适合范围内的都采用该数据库
+
+          任务三：不进行综述，review填“否”
+
+          '
+        model:
+          completion_params:
+            enable_search: true
+            seed: 1234
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 文献检索或文献综述主题
+          name: query
+          options: []
+          required: true
+          type: string
+        - description: 文献数据库，可选arXiv、PubMed和Scopus
+          name: database
+          options:
+          - Scopus
+          - PubMed
+          - arXiv
+          required: true
+          type: string
+        - description: 是否根据参考文献进行文献综述，是的话返回综述结果，否的话只返回检索的文献信息
+          name: review
+          options:
+          - 是
+          - 否
+          required: true
+          type: string
+        query:
+        - '1751115907450'
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 文献检索参数提取
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751116978803'
+      position:
+        x: 333
+        y: 447.47574625141726
+      positionAbsolute:
+        x: 333
+        y: 447.47574625141726
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 用户问题
+            ja_JP: 用户问题
+            pt_BR: 用户问题
+            zh_Hans: 用户问题
+          label:
+            en_US: query_knowledge
+            ja_JP: query_knowledge
+            pt_BR: query_knowledge
+            zh_Hans: query_knowledge
+          llm_description: 用户问题
+          max: null
+          min: null
+          name: query_knowledge
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          query_knowledge: ''
+        provider_id: 4a3d8ac6-b44f-4999-a239-7255ab4163ed
+        provider_name: 药典知识检索，主体寻找
+        provider_type: workflow
+        selected: false
+        title: 药典知识检索，主体寻找
+        tool_configurations: {}
+        tool_label: 药典知识检索，主体寻找
+        tool_name: Chinese_Pharmacopoeia_Knowledge_Retrieval
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1751115907450.query#}}'
+          query_knowledge:
+            type: mixed
+            value: '{{#1751115907450.query#}}'
+        type: tool
+      height: 54
+      id: '1751117804944'
+      position:
+        x: 636
+        y: 373.5
+      positionAbsolute:
+        x: 636
+        y: 373.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1751250190786'
+          - text
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1751117886276'
+      position:
+        x: 1242
+        y: 355.5
+      positionAbsolute:
+        x: 1242
+        y: 355.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1751117804944'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            enable_search: true
+            seed: 1234
+          mode: chat
+          name: qwen-plus-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 4bece96a-2536-4efb-959c-f21b1f3f5e82
+          role: system
+          text: '你是一个色谱领域专家，你的任务是综合参考信息并给出用户问题的最佳回复。
+
+            '
+        - id: dfb912a3-9a35-4d51-a652-15a6d117ab70
+          role: user
+          text: '用户的问题如下：
+
+            {{#1751115907450.query#}}
+
+
+            以下是参考信息：
+
+            1. 中国药典知识：
+
+            {{#context#}}
+
+            2. 色谱垂直领域大模型给出的建议：
+
+            {{#1751116301538.text#}}
+
+            3. 文献检索知识，可供参考。没有引用文献则不管，如果引用了以下提到的文献，请在引用处以“[1]”格式注明，并以参考文献标准格式在返回结果最下方注明，注意参考文献的作者、标题、期刊和DOI（若有）要与以下给出的信息一致：
+
+            {{#1751116884502.text#}}'
+        selected: false
+        title: 综合
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751250190786'
+      position:
+        x: 938.1902117212492
+        y: 355.5
+      positionAbsolute:
+        x: 938.1902117212492
+        y: 355.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 295.2987473686321
+      y: 111.98361313866349
+      zoom: 0.9763205664452844

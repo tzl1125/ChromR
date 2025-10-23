@@ -1,0 +1,1710 @@
+app:
+  description: An Chromatographic Process Design and Optimization Platform Powered
+    by Large Language Models
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: ChromR
+  use_icon_as_answer_icon: true
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.54@a719a5a226596151af6ff33fa710a74476faa6e1afde9e4a201ff8a7803857ff
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 9e800f2a-807b-416c-b24b-d27c07b216e2
+    name: server_ip
+    selector:
+    - env
+    - server_ip
+    value: 10.71.127.126
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - document
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 10
+    opening_statement: 你好，我是柱层析机器人，有什么需要我帮助的吗？
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: true
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1751285677804-source-1751285686348-target
+      selected: false
+      source: '1751285677804'
+      sourceHandle: source
+      target: '1751285686348'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1751285773671-source-1751285780623-target
+      selected: false
+      source: '1751285773671'
+      sourceHandle: source
+      target: '1751285780623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1751285814793-source-17512858207680-target
+      selected: false
+      source: '1751285814793'
+      sourceHandle: source
+      target: '17512858207680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1751285805929-source-17512858237930-target
+      selected: false
+      source: '1751285805929'
+      sourceHandle: source
+      target: '17512858237930'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 17521317268220-source-1751804090710-target
+      selected: false
+      source: '17521317268220'
+      sourceHandle: source
+      target: '1751804090710'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17521317227910-source-1752132313286-target
+      selected: false
+      source: '17521317227910'
+      sourceHandle: source
+      target: '1752132313286'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1752132447198-source-1752132804786-target
+      selected: false
+      source: '1752132447198'
+      sourceHandle: source
+      target: '1752132804786'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1752226860191-source-1752132447198-target
+      selected: false
+      source: '1752226860191'
+      sourceHandle: source
+      target: '1752132447198'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1752132313286-false-1752226860191-target
+      selected: false
+      source: '1752132313286'
+      sourceHandle: 'false'
+      target: '1752226860191'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1752132313286-true-17521166972740-target
+      selected: false
+      source: '1752132313286'
+      sourceHandle: 'true'
+      target: '17521166972740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1753877218228-fail-branch-1753877946491-target
+      selected: false
+      source: '1753877218228'
+      sourceHandle: fail-branch
+      target: '1753877946491'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: code
+      id: 1751285686348-1751285699569-1753877218228-target
+      selected: false
+      source: '1751285686348'
+      sourceHandle: '1751285699569'
+      target: '1753877218228'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: 1751285686348-1751285700405-1752116653466-target
+      selected: false
+      source: '1751285686348'
+      sourceHandle: '1751285700405'
+      target: '1752116653466'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1751285686348-1-1761209357170-target
+      selected: false
+      source: '1751285686348'
+      sourceHandle: '1'
+      target: '1761209357170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1761209357170-source-1751285805929-target
+      selected: false
+      source: '1761209357170'
+      sourceHandle: source
+      target: '1751285805929'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1751285686348-2-1761209391851-target
+      selected: false
+      source: '1751285686348'
+      sourceHandle: '2'
+      target: '1761209391851'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1761209391851-source-1751285814793-target
+      selected: false
+      source: '1761209391851'
+      sourceHandle: source
+      target: '1751285814793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1753877218228-source-1761209421736-target
+      selected: false
+      source: '1753877218228'
+      sourceHandle: source
+      target: '1761209421736'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1761209421736-source-17521317268220-target
+      selected: false
+      source: '1761209421736'
+      sourceHandle: source
+      target: '17521317268220'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: tool
+      id: 1752116653466-source-1761209459772-target
+      selected: false
+      source: '1752116653466'
+      sourceHandle: source
+      target: '1761209459772'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1761209459772-source-17521317227910-target
+      selected: false
+      source: '1761209459772'
+      sourceHandle: source
+      target: '17521317227910'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1751285686348-1751285702663-1751285773671-target
+      selected: false
+      source: '1751285686348'
+      sourceHandle: '1751285702663'
+      target: '1751285773671'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1751285677804'
+      position:
+        x: 30
+        y: 385.5
+      positionAbsolute:
+        x: 30
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 模块一
+        - id: '2'
+          name: 模块二
+        - id: '1751285699569'
+          name: 模块三
+        - id: '1751285700405'
+          name: 模块四
+        - id: '1751285702663'
+          name: 其他
+        desc: ''
+        instruction: '分析用户需求，选择可以满足需求的模块
+
+          1. 模块一功能如下：
+
+          -推荐柱层析工艺参数或回答用户色谱领域的专业性问题。
+
+
+          2. 模块二功能如下：
+
+          -进行实验设计。
+
+
+          3. 模块三功能如下：
+
+          -创建实验设计表
+
+          -创建实验
+
+          -运行实验
+
+          -停止实验
+
+
+          4. 模块四功能如下：
+
+          -使用逐步回归建模
+
+          -使用fp-growth算法进行关联规则挖掘
+
+          -计算考虑噪声参数、考虑物料或不考虑物料的设计空间
+
+          -进行多目标优化，给出帕累托前沿。
+
+
+          5. 其他
+
+          -以上4个类别无法实现用户描述的要求时选择该类'
+        instructions: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        query_variable_selector:
+        - sys
+        - query
+        selected: false
+        title: 用户意图分类
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 286
+      id: '1751285686348'
+      position:
+        x: 360.8346906192709
+        y: 385.5
+      positionAbsolute:
+        x: 360.8346906192709
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            enable_search: true
+            seed: 1234
+          mode: chat
+          name: qwen-plus-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: f467692b-5a04-4f81-a514-611b57d2f3fc
+          role: system
+          text: 你是ChromR，集成了色谱垂直领域大模型与商业大模型，能够实现从文献检索到实验设计到实验运行到数据分析与建模的全流程自动化，在色谱工艺优化方面大幅减少人工干预，为色谱工艺优化提供了智慧化实施方案。
+        selected: false
+        title: 闲聊
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751285773671'
+      position:
+        x: 696
+        y: 1077
+      positionAbsolute:
+        x: 696
+        y: 1077
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1751285773671.text#}}'
+        desc: ''
+        selected: false
+        title: 闲聊回复
+        type: answer
+        variables: []
+      height: 105
+      id: '1751285780623'
+      position:
+        x: 1045.965101709937
+        y: 1223.0883758355703
+      positionAbsolute:
+        x: 1045.965101709937
+        y: 1223.0883758355703
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(arg1: str) -> dict:\n    result = json.loads(arg1)\n\
+          \    return {\n        \"result\": result['result'],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 格式转换
+        type: code
+        variables:
+        - value_selector:
+          - '1751287722996'
+          - text
+          variable: arg1
+      height: 54
+      id: '1751285805929'
+      position:
+        x: 1029
+        y: 411
+      positionAbsolute:
+        x: 1029
+        y: 411
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 53f84b58-15da-4ea0-b13e-fc1894140850
+          role: system
+          text: '请将实验设计表格式化成html形式，不用代码块包裹，以提高用户可读性
+
+            若无法生成实验设计则直接返回“无法生成实验设计，请检查提示词”
+
+            除了实验设计表，不要返回其他无关内容
+
+            实验设计表每一次实验应该有序号'
+        - id: 64eeec82-4357-4898-adfe-e8eb5a4a433e
+          role: user
+          text: '{{#1751285790809.text#}}'
+        selected: false
+        title: 实验设计表格式化
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751285814793'
+      position:
+        x: 1029
+        y: 581.0000000000001
+      positionAbsolute:
+        x: 1029
+        y: 581.0000000000001
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '模块二执行结果：
+
+          {{#1751285814793.text#}}'
+        desc: 实验设计结果
+        selected: false
+        title: 模块二执行结果
+        type: answer
+        variables: []
+      height: 149
+      id: '17512858207680'
+      position:
+        x: 1362
+        y: 573.5
+      positionAbsolute:
+        x: 1362
+        y: 573.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '模块一执行结果：
+
+          {{#1751285805929.result#}}'
+        desc: 柱色谱专业知识回答
+        selected: false
+        title: 模块一执行结果
+        type: answer
+        variables: []
+      height: 149
+      id: '17512858237930'
+      position:
+        x: 1362
+        y: 385.5
+      positionAbsolute:
+        x: 1362
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '模块三执行结果：
+
+          {{#17521317268220.result#}}'
+        desc: 创建实验、创建实验设计表、停止或运行实验
+        selected: false
+        title: 模块三执行结果
+        type: answer
+        variables: []
+      height: 165
+      id: '1751804090710'
+      position:
+        x: 1667.9336327408857
+        y: 701.0081437156251
+      positionAbsolute:
+        x: 1667.9336327408857
+        y: 701.0081437156251
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: '你的任务如下：
+
+          1. 首先是判断用户选择的功能是什么，只能选择
+
+          - 逐步回归
+
+          - 关联规则挖掘
+
+          - 设计空间计算
+
+          - 多目标优化
+
+          - 其他
+
+          2. 选择好功能后请提取每个功能所需的对应参数
+
+          逐步回归：p_value（默认0.1）
+
+          关联规则挖掘： min_support（默认25）、min_conf（默认0.8）
+
+          设计空间计算：p_value（默认0.1）、mt（默认1000）、r（默认0.1）、ds_type（默认withoutM）、no_risk（默认1）
+
+          3. 注意ds_type只能选择以下三种：
+
+          - includeN：考虑噪声参数的设计空间
+
+          - withM：考虑物料的设计空间计算
+
+          - withoutM：不考虑物料的普通设计空间计算
+
+          4. 注意no_risk只能是0或者1,当用户给出了mt和r时为0，没有给出则为1'
+        model:
+          completion_params:
+            enable_thinking: false
+            seed: 1234
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: 逐步回归p值，设计空间计算也需要
+          name: p_value
+          options: []
+          required: false
+          type: number
+        - description: 关联规则挖掘最小支持度
+          name: min_support
+          options: []
+          required: false
+          type: number
+        - description: 关联规则挖掘最小置信度
+          name: min_conf
+          options: []
+          required: false
+          type: number
+        - description: 设计空间参数，蒙特卡洛模拟次数
+          name: mt
+          options: []
+          required: false
+          type: number
+        - description: 设计空间参数，风险值
+          name: r
+          options: []
+          required: false
+          type: number
+        - description: 设计空间类型
+          name: ds_type
+          options:
+          - includeN
+          - withM
+          - withoutM
+          required: false
+          type: string
+        - description: 选择功能
+          name: func
+          options:
+          - 逐步回归
+          - 关联规则挖掘
+          - 设计空间计算
+          - 多目标优化
+          required: true
+          type: string
+        - description: 设计空间参数，是否计算风险
+          name: no_risk
+          required: false
+          type: number
+        query:
+        - sys
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1752116653466'
+      position:
+        x: 696
+        y: 932.7026852950835
+      positionAbsolute:
+        x: 696
+        y: 932.7026852950835
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '模块四执行结果：
+
+          {{#17521317227910.result#}}'
+        desc: 数据分析与建模结果
+        selected: false
+        title: 模块四执行结果
+        type: answer
+        variables: []
+      height: 149
+      id: '17521166972740'
+      position:
+        x: 2119
+        y: 804
+      positionAbsolute:
+        x: 2119
+        y: 804
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(arg1: str) -> dict:\n    result = json.loads(arg1)\n\
+          \    return {\n        \"result\": result['result'],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 格式转换
+        type: code
+        variables:
+        - value_selector:
+          - '1752226781829'
+          - text
+          value_type: string
+          variable: arg1
+      height: 54
+      id: '17521317227910'
+      position:
+        x: 1362
+        y: 995.5
+      positionAbsolute:
+        x: 1362
+        y: 995.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(arg1: str) -> dict:\n    result = json.loads(arg1)\n\
+          \    return {\n        \"result\": result['result'],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 格式转换
+        type: code
+        variables:
+        - value_selector:
+          - '1751804077024'
+          - text
+          value_type: string
+          variable: arg1
+      height: 54
+      id: '17521317268220'
+      position:
+        x: 1362
+        y: 761.5
+      positionAbsolute:
+        x: 1362
+        y: 761.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is not
+            id: 5132d921-f8a8-4b85-b5c4-9e36686e9ef4
+            value: 逐步回归
+            varType: string
+            variable_selector:
+            - '1752116653466'
+            - func
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 126
+      id: '1752132313286'
+      position:
+        x: 1695
+        y: 967.5
+      positionAbsolute:
+        x: 1695
+        y: 967.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            seed: 1234
+          mode: chat
+          name: qwen-max-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 3d0e3aeb-c0b8-4a19-8a23-ad1e2632fae0
+          role: system
+          text: '你的主要任务是分析实验数据和逐步回归（根据p值筛选项后回归建模）的建模结果，回答用户的提问，综合给出建模结果的分析与评价。最后请给出建模得到的多项式和决定系数。
+
+            注意：
+
+            1. 实验因子和实验结果每一行的数据是对应的，即第一行实验因子对应第一行的实验结果。
+
+            2. 建模成功才进行分析，建模失败则直接输出错误信息
+
+            3. 注意多项式模型不用LaTeX格式'
+        - id: 3bb558ef-0c49-43d9-84e0-32f585028773
+          role: user
+          text: '用户的提问如下：
+
+            {{#sys.query#}}
+
+            实验因子和实验结果（请根据建模结果区分实验因子表格和实验结果表格）如下：
+
+            {{#1752226860191.text#}}
+
+            针对以上实验因子和实验结果进行逐步回归建模（逐步回归筛选项p值={{#1752116653466.p_value#}}）的结果如下：
+
+            {{#17521317227910.result#}}
+
+            若建模失败则直接返回如下文字：
+
+            {{#17521317227910.result#}}'
+        selected: false
+        title: 逐步回归结果整合
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1752132447198'
+      position:
+        x: 2781.7520359289065
+        y: 972.4173453096355
+      positionAbsolute:
+        x: 2781.7520359289065
+        y: 972.4173453096355
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '模块四执行结果如下：
+
+
+
+          {{#1752132447198.text#}}'
+        desc: 逐步回归结果分析
+        selected: false
+        title: 模块四逐步回归回复
+        type: answer
+        variables: []
+      height: 149
+      id: '1752132804786'
+      position:
+        x: 3118
+        y: 968
+      positionAbsolute:
+        x: 3118
+        y: 968
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 实验结果和因子提取
+        type: document-extractor
+        variable_selector:
+        - sys
+        - files
+      height: 92
+      id: '1752226860191'
+      position:
+        x: 2452
+        y: 968
+      positionAbsolute:
+        x: 2452
+        y: 968
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\n\ndef main(ip: str ):\n    # 发送GET请求\n    api_url\
+          \ = f\"http://{ip}:8000/hardware-ip\"\n    response = requests.get(api_url,\
+          \ timeout=5)\n    \n    # 检查HTTP请求是否成功\n    response.raise_for_status()\n\
+          \    \n    # 解析响应数据\n    data = response.json()\n    hardware_ip = data.get(\"\
+          result\")\n    \n    # 判断IP是否为空\n    if not hardware_ip:\n        raise\
+          \ ValueError(\"获取到的硬件IP为空，请检查硬件服务器!\")\n\n    return {'result':hardware_ip}\n\
+          \n\n\n    "
+        code_language: python3
+        desc: ''
+        error_strategy: fail-branch
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 硬件服务器ip获取
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - server_ip
+          value_type: string
+          variable: ip
+      height: 90
+      id: '1753877218228'
+      position:
+        x: 696
+        y: 714
+      positionAbsolute:
+        x: 696
+        y: 714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 获取硬件 IP失败，请检查硬件服务器!
+        desc: ''
+        selected: false
+        title: 硬件服务器ip获取失败
+        type: answer
+        variables: []
+      height: 102
+      id: '1753877946491'
+      position:
+        x: 1029
+        y: 832.5
+      positionAbsolute:
+        x: 1029
+        y: 832.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 色谱领域知识
+            ja_JP: 色谱领域知识
+            pt_BR: 色谱领域知识
+            zh_Hans: 色谱领域知识
+          label:
+            en_US: 柱层析专业问题
+            ja_JP: 柱层析专业问题
+            pt_BR: 柱层析专业问题
+            zh_Hans: 柱层析专业问题
+          llm_description: 色谱领域知识
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          query: ''
+        provider_id: 92e94633-18c5-460f-b277-afcf2a9b07b6
+        provider_name: ChromR-Agent A
+        provider_type: workflow
+        selected: false
+        title: ChromR-Agent A
+        tool_configurations: {}
+        tool_description: '色谱专家问答模块
+
+          可根据用户的描述进行文献和知识库检索，模块基于检索结果和柱色谱大模型的回答进行综合后返回。该模块结合了柱层析垂直领域大模型、中国药典和最新文献数据，可以用于柱色谱工艺参数推荐或专业知识回答。
+
+          '
+        tool_label: ChromR-Agent A
+        tool_name: Chromatography_Expert_QA
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 54
+      id: '1761209357170'
+      position:
+        x: 711.2089225148642
+        y: 422.7023753565164
+      positionAbsolute:
+        x: 711.2089225148642
+        y: 422.7023753565164
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 实验设计描述
+            ja_JP: 实验设计描述
+            pt_BR: 实验设计描述
+            zh_Hans: 实验设计描述
+          label:
+            en_US: 实验设计描述
+            ja_JP: 实验设计描述
+            pt_BR: 实验设计描述
+            zh_Hans: 实验设计描述
+          llm_description: 实验设计描述
+          max: null
+          min: null
+          name: exp_description
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          exp_description: ''
+        provider_id: 4f08ba1b-f685-4905-b19f-4cec32881ce7
+        provider_name: ChromR-Agent B
+        provider_type: workflow
+        selected: false
+        title: ChromR-Agent B
+        tool_configurations: {}
+        tool_description: 输入各个因子水平，以及使用的实验设计，返回实验设计表
+        tool_label: ChromR-Agent B
+        tool_name: experiment_design
+        tool_parameters:
+          exp_description:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 54
+      id: '1761209391851'
+      position:
+        x: 711.2089225148642
+        y: 547.2076647484417
+      positionAbsolute:
+        x: 711.2089225148642
+        y: 547.2076647484417
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 运行或停止实验、创建实验、创建实验设计表
+            ja_JP: 运行或停止实验、创建实验、创建实验设计表
+            pt_BR: 运行或停止实验、创建实验、创建实验设计表
+            zh_Hans: 运行或停止实验、创建实验、创建实验设计表
+          label:
+            en_US: 需求
+            ja_JP: 需求
+            pt_BR: 需求
+            zh_Hans: 需求
+          llm_description: 运行或停止实验、创建实验、创建实验设计表
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 硬件服务器ip
+            ja_JP: 硬件服务器ip
+            pt_BR: 硬件服务器ip
+            zh_Hans: 硬件服务器ip
+          label:
+            en_US: 硬件服务器地址
+            ja_JP: 硬件服务器地址
+            pt_BR: 硬件服务器地址
+            zh_Hans: 硬件服务器地址
+          llm_description: 硬件服务器ip
+          max: null
+          min: null
+          name: hardware_server_ip
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 服务器ip
+            ja_JP: 服务器ip
+            pt_BR: 服务器ip
+            zh_Hans: 服务器ip
+          label:
+            en_US: 服务器ip
+            ja_JP: 服务器ip
+            pt_BR: 服务器ip
+            zh_Hans: 服务器ip
+          llm_description: 服务器ip
+          max: null
+          min: null
+          name: server_ip
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          hardware_server_ip: ''
+          query: ''
+          server_ip: ''
+        provider_id: a81d6a6b-1b42-44b3-9cc0-51fa8e6ec6b1
+        provider_name: ChromR-Agent C
+        provider_type: workflow
+        selected: false
+        title: ChromR-Agent C
+        tool_configurations: {}
+        tool_description: 进行实验设计时，大模型自动生成硬件运行代码（json），并命令柱层析硬件根据配置文件自动化运行。
+        tool_label: ChromR-Agent C
+        tool_name: run_exp
+        tool_parameters:
+          hardware_server_ip:
+            type: mixed
+            value: '{{#1753877218228.result#}}'
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+          server_ip:
+            type: mixed
+            value: '{{#env.server_ip#}}'
+        type: tool
+      height: 54
+      id: '1761209421736'
+      position:
+        x: 1036.709675925869
+        y: 730.7928143490617
+      positionAbsolute:
+        x: 1036.709675925869
+        y: 730.7928143490617
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 逐步回归p值
+            ja_JP: 逐步回归p值
+            pt_BR: 逐步回归p值
+            zh_Hans: 逐步回归p值
+          label:
+            en_US: 逐步回归p值
+            ja_JP: 逐步回归p值
+            pt_BR: 逐步回归p值
+            zh_Hans: 逐步回归p值
+          llm_description: 逐步回归p值
+          max: null
+          min: null
+          name: p_value
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 关联规则挖掘最小支持度
+            ja_JP: 关联规则挖掘最小支持度
+            pt_BR: 关联规则挖掘最小支持度
+            zh_Hans: 关联规则挖掘最小支持度
+          label:
+            en_US: 关联规则挖掘最小支持度
+            ja_JP: 关联规则挖掘最小支持度
+            pt_BR: 关联规则挖掘最小支持度
+            zh_Hans: 关联规则挖掘最小支持度
+          llm_description: 关联规则挖掘最小支持度
+          max: null
+          min: null
+          name: min_support
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 关联规则挖掘最小置信度
+            ja_JP: 关联规则挖掘最小置信度
+            pt_BR: 关联规则挖掘最小置信度
+            zh_Hans: 关联规则挖掘最小置信度
+          label:
+            en_US: 关联规则挖掘最小置信度
+            ja_JP: 关联规则挖掘最小置信度
+            pt_BR: 关联规则挖掘最小置信度
+            zh_Hans: 关联规则挖掘最小置信度
+          llm_description: 关联规则挖掘最小置信度
+          max: null
+          min: null
+          name: min_conf
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 蒙特卡洛模拟次数
+            ja_JP: 蒙特卡洛模拟次数
+            pt_BR: 蒙特卡洛模拟次数
+            zh_Hans: 蒙特卡洛模拟次数
+          label:
+            en_US: 蒙特卡洛模拟次数
+            ja_JP: 蒙特卡洛模拟次数
+            pt_BR: 蒙特卡洛模拟次数
+            zh_Hans: 蒙特卡洛模拟次数
+          llm_description: 蒙特卡洛模拟次数
+          max: null
+          min: null
+          name: mt
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 风险值
+            ja_JP: 风险值
+            pt_BR: 风险值
+            zh_Hans: 风险值
+          label:
+            en_US: 可接受的风险
+            ja_JP: 可接受的风险
+            pt_BR: 可接受的风险
+            zh_Hans: 可接受的风险
+          llm_description: 风险值
+          max: null
+          min: null
+          name: r
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 设计空间类型
+            ja_JP: 设计空间类型
+            pt_BR: 设计空间类型
+            zh_Hans: 设计空间类型
+          label:
+            en_US: 设计空间类型
+            ja_JP: 设计空间类型
+            pt_BR: 设计空间类型
+            zh_Hans: 设计空间类型
+          llm_description: 设计空间类型
+          max: null
+          min: null
+          name: ds_type
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 数据文件
+            ja_JP: 数据文件
+            pt_BR: 数据文件
+            zh_Hans: 数据文件
+          label:
+            en_US: 待分析的数据
+            ja_JP: 待分析的数据
+            pt_BR: 待分析的数据
+            zh_Hans: 待分析的数据
+          llm_description: 数据文件
+          max: null
+          min: null
+          name: datas
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: files
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 选择功能
+            ja_JP: 选择功能
+            pt_BR: 选择功能
+            zh_Hans: 选择功能
+          label:
+            en_US: 选择功能
+            ja_JP: 选择功能
+            pt_BR: 选择功能
+            zh_Hans: 选择功能
+          llm_description: 选择功能
+          max: null
+          min: null
+          name: func
+          options:
+          - icon: null
+            label:
+              en_US: 逐步回归
+              ja_JP: 逐步回归
+              pt_BR: 逐步回归
+              zh_Hans: 逐步回归
+            value: 逐步回归
+          - icon: null
+            label:
+              en_US: 关联规则挖掘
+              ja_JP: 关联规则挖掘
+              pt_BR: 关联规则挖掘
+              zh_Hans: 关联规则挖掘
+            value: 关联规则挖掘
+          - icon: null
+            label:
+              en_US: 设计空间计算
+              ja_JP: 设计空间计算
+              pt_BR: 设计空间计算
+              zh_Hans: 设计空间计算
+            value: 设计空间计算
+          - icon: null
+            label:
+              en_US: 多目标优化
+              ja_JP: 多目标优化
+              pt_BR: 多目标优化
+              zh_Hans: 多目标优化
+            value: 多目标优化
+          - icon: null
+            label:
+              en_US: 其他
+              ja_JP: 其他
+              pt_BR: 其他
+              zh_Hans: 其他
+            value: 其他
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 用户请求问题
+            ja_JP: 用户请求问题
+            pt_BR: 用户请求问题
+            zh_Hans: 用户请求问题
+          label:
+            en_US: 用户需求描述
+            ja_JP: 用户需求描述
+            pt_BR: 用户需求描述
+            zh_Hans: 用户需求描述
+          llm_description: 用户请求问题
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 服务器ip
+            ja_JP: 服务器ip
+            pt_BR: 服务器ip
+            zh_Hans: 服务器ip
+          label:
+            en_US: 服务器ip
+            ja_JP: 服务器ip
+            pt_BR: 服务器ip
+            zh_Hans: 服务器ip
+          llm_description: 服务器ip
+          max: null
+          min: null
+          name: server_ip
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 是否是无概率设计空间
+            ja_JP: 是否是无概率设计空间
+            pt_BR: 是否是无概率设计空间
+            zh_Hans: 是否是无概率设计空间
+          label:
+            en_US: 无概率设计空间
+            ja_JP: 无概率设计空间
+            pt_BR: 无概率设计空间
+            zh_Hans: 无概率设计空间
+          llm_description: 是否是无概率设计空间
+          max: null
+          min: null
+          name: no_risk
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          datas: ''
+          ds_type: ''
+          func: ''
+          min_conf: ''
+          min_support: ''
+          mt: ''
+          no_risk: ''
+          p_value: ''
+          query: ''
+          r: ''
+          server_ip: ''
+        provider_id: d6c2935b-9aa6-47cd-8012-6352761bedf0
+        provider_name: ChromR-Agent D
+        provider_type: workflow
+        selected: false
+        title: ChromR-Agent D
+        tool_configurations: {}
+        tool_description: 能够分析实验数据，使用逐步回归建模。可以传入文件计算设计空间。可以进行关联规则挖掘。可以使用进化算法进行多目标优化
+        tool_label: ChromR-Agent D
+        tool_name: data_AnalizeAndModel
+        tool_parameters:
+          datas:
+            type: variable
+            value:
+            - sys
+            - files
+          ds_type:
+            type: mixed
+            value: '{{#1752116653466.ds_type#}}'
+          func:
+            type: variable
+            value:
+            - '1752116653466'
+            - func
+          min_conf:
+            type: variable
+            value:
+            - '1752116653466'
+            - min_conf
+          min_support:
+            type: variable
+            value:
+            - '1752116653466'
+            - min_support
+          mt:
+            type: variable
+            value:
+            - '1752116653466'
+            - mt
+          no_risk:
+            type: variable
+            value:
+            - '1752116653466'
+            - no_risk
+          p_value:
+            type: variable
+            value:
+            - '1752116653466'
+            - p_value
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+          r:
+            type: variable
+            value:
+            - '1752116653466'
+            - r
+          server_ip:
+            type: mixed
+            value: '{{#env.server_ip#}}'
+        type: tool
+      height: 54
+      id: '1761209459772'
+      position:
+        x: 1036.709675925869
+        y: 1023.1078333825719
+      positionAbsolute:
+        x: 1036.709675925869
+        y: 1023.1078333825719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -151.11873111324735
+      y: -597.1507948129893
+      zoom: 1.061001596557279
