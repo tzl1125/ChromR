@@ -467,7 +467,7 @@ workflow:
       positionAbsolute:
         x: 696
         y: 1077
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -483,10 +483,10 @@ workflow:
       id: '1751285780623'
       position:
         x: 1045.965101709937
-        y: 1223.0883758355703
+        y: 1224.171030525935
       positionAbsolute:
         x: 1045.965101709937
-        y: 1223.0883758355703
+        y: 1224.171030525935
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -506,8 +506,9 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1751287722996'
+          - '1761209357170'
           - text
+          value_type: string
           variable: arg1
       height: 54
       id: '1751285805929'
@@ -545,7 +546,7 @@ workflow:
             实验设计表每一次实验应该有序号'
         - id: 64eeec82-4357-4898-adfe-e8eb5a4a433e
           role: user
-          text: '{{#1751285790809.text#}}'
+          text: '{{#1761209391851.text#}}'
         selected: false
         title: 实验设计表格式化
         type: llm
@@ -777,7 +778,7 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1752226781829'
+          - '1761209459772'
           - text
           value_type: string
           variable: arg1
@@ -808,7 +809,7 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1751804077024'
+          - '1761209421736'
           - text
           value_type: string
           variable: arg1
@@ -816,10 +817,10 @@ workflow:
       id: '17521317268220'
       position:
         x: 1362
-        y: 761.5
+        y: 761.4999999999999
       positionAbsolute:
         x: 1362
-        y: 761.5
+        y: 761.4999999999999
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -845,11 +846,11 @@ workflow:
       height: 126
       id: '1752132313286'
       position:
-        x: 1695
-        y: 967.5
+        x: 1691.7520359289063
+        y: 968
       positionAbsolute:
-        x: 1695
-        y: 967.5
+        x: 1691.7520359289063
+        y: 968
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1262,10 +1263,10 @@ workflow:
       id: '1761209421736'
       position:
         x: 1036.709675925869
-        y: 730.7928143490617
+        y: 729.7101596586971
       positionAbsolute:
         x: 1036.709675925869
-        y: 730.7928143490617
+        y: 729.7101596586971
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1699,12 +1700,12 @@ workflow:
       positionAbsolute:
         x: 1036.709675925869
         y: 1023.1078333825719
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -151.11873111324735
-      y: -597.1507948129893
-      zoom: 1.061001596557279
+      x: -392.426458001494
+      y: -551.63900950993
+      zoom: 0.9236555375410263
